@@ -1,0 +1,56 @@
+﻿namespace Characters.Player.CharacterItem
+{
+    public enum AffixType
+    {
+        PREFIX, SUFFIX
+    }
+    
+    public enum Affixes
+    {
+        //Prefix //TODO ADD added physical damage, added magic damage
+        FLAT_STRENGTH,
+        FLAT_DEXTERITY,
+        FLAT_INTELLIGENCE,
+        MAX_HEALTH,
+        HEALTH_REGEN,
+        MANA_REGEN,
+        INCREASED_PHYSICAL_DAMAGE,
+        INCREASED_MAGIC_DAMAGE, 
+        INCREASED_SPELL_SKILL_DAMAGE,
+        INCREASED_ATTACK_SKILL_DAMAGE, 
+        INCREASED_ATTACK_RANGE,
+        INCREASED_ATTACK_SPEED,
+        INCREASED_CAST_SPEED, 
+        LIFE_STEAL,
+        ARMOUR_PENETRATION,
+        MAGIC_DAMAGE_PENETRATION,
+        INCREASED_SKILL_DURATION,
+        
+        //Suffix
+        INCREASED_DAMAGE, 
+        INCREASED_ARMOUR_LOCAL, 
+        INCREASED_MAGIC_RESISTANCE_LOCAL, 
+        INCREASED_DODGE_LOCAL, 
+        ARMOUR,
+        MAGIC_RESISTANCE,
+        DODGE,
+        DAMAGE_REDUCTION,
+        BLOCK_CHANCE,
+        BLOCK_DAMAGE_REDUCTION,
+        BLEED_CHANCE,
+        BURN_CHANCE,
+        INCREASED_BLEED_CHANCE, 
+        INCREASED_BURN_CHANCE,
+        
+        //rare
+        INCREASED_HEALTH,
+        INCREASED_STRENGTH,
+        INCREASED_DEXTERITY,
+        INCREASED_INTELLIGENCE, 
+        INCREASED_ARMOUR_GLOBAL, 
+        INCREASED_MAGIC_RESISTANCE_GLOBAL, 
+        INCREASED_DODGE_GLOBAL, 
+        ADDITIONAL_PROJECTILES,
+
+    }
+}
