@@ -1,6 +1,9 @@
-﻿using ProjectEnums;
+﻿using System;
+using System.Linq;
+using ProjectEnums;
 using UnityEngine;
 using Utilities;
+using Random = UnityEngine.Random;
 using Vector2 = System.Numerics.Vector2;
 using Vector3 = System.Numerics.Vector3;
 
@@ -10,6 +13,13 @@ namespace Characters.Player.CharacterItem
     {
         [SerializeField] private GameObject itemPrefab;
 
+        [SerializeField] private Transform itemParent;
+        
+        private Affixes[] defensivesLocal = new []
+        {
+            Affixes.INCREASED_ARMOUR_LOCAL, Affixes.INCREASED_DODGE_LOCAL, Affixes.INCREASED_MAGIC_RESISTANCE_LOCAL
+        };
+        
         public static Rarity GetRandomRarity()
         {
             float roll = Random.Range(0f, 1f) * 100f;
@@ -26,13 +36,11 @@ namespace Characters.Player.CharacterItem
             return (byte)Random.Range(3, 5);
         }
         
-        
-        
-        
         public void GenerateItem(int tier) //Should return gameobject?
         {
             EquipmentBase equipmentBase = GetBasesTable(tier)[Random.Range(0, GetBasesTable(tier).Length)];
-            GameObject newItem = Instantiate(itemPrefab);
+            GameObject newItem = Instantiate(itemPrefab, itemParent);
+            //newItem.transform.parent = itemParent; //for tests
             EquipableItem equipable = newItem.GetComponent<EquipableItem>();
             Rarity rarity = GetRandomRarity();
             
@@ -73,34 +81,76 @@ namespace Characters.Player.CharacterItem
                 case 0:
                     break;
                 case 1:
-                    if (Random.Range(0, 1) == 1) equipable.AddPrefix(AffixGenerator.GenerateAffix(AffixType.PREFIX, equipable.EquipmentType));
-                    else equipable.AddSuffix(AffixGenerator.GenerateAffix(AffixType.SUFFIX, equipable.EquipmentType));
+                    if (Random.Range(0, 1) == 1)
+                        AddAffix(equipable, AffixType.PREFIX);
+                    else AddAffix(equipable, AffixType.SUFFIX);
                     break;
                 case 2:
-                    equipable.AddPrefix(AffixGenerator.GenerateAffix(AffixType.PREFIX, equipable.EquipmentType));
-                    equipable.AddSuffix(AffixGenerator.GenerateAffix(AffixType.SUFFIX, equipable.EquipmentType));
+                    AddAffix(equipable, AffixType.PREFIX);
+                    AddAffix(equipable, AffixType.SUFFIX);
                     break;
                 case 3:
-                    equipable.AddPrefix(AffixGenerator.GenerateAffix(AffixType.PREFIX, equipable.EquipmentType));
-                    equipable.AddSuffix(AffixGenerator.GenerateAffix(AffixType.SUFFIX, equipable.EquipmentType));
-                    if (Random.Range(0, 1) == 1) equipable.AddPrefix(AffixGenerator.GenerateAffix(AffixType.PREFIX, equipable.EquipmentType, equipable.Prefixes[0]));
-                    else equipable.AddSuffix(AffixGenerator.GenerateAffix(AffixType.SUFFIX, equipable.EquipmentType, equipable.Suffixes[0]));
+                    AddAffix(equipable, AffixType.PREFIX);
+                    AddAffix(equipable, AffixType.SUFFIX);
+                    if (Random.Range(0, 1) == 1) AddAffix(equipable, AffixType.PREFIX);
+                    else AddAffix(equipable, AffixType.SUFFIX);
                     break;
                 case 4:
-                    equipable.AddPrefix(AffixGenerator.GenerateAffix(AffixType.PREFIX, equipable.EquipmentType));
-                    equipable.AddSuffix(AffixGenerator.GenerateAffix(AffixType.SUFFIX, equipable.EquipmentType));
-                    equipable.AddPrefix(AffixGenerator.GenerateAffix(AffixType.PREFIX, equipable.EquipmentType, equipable.Prefixes[0]));
-                    equipable.AddSuffix(AffixGenerator.GenerateAffix(AffixType.SUFFIX, equipable.EquipmentType, equipable.Suffixes[0]));
+                    AddAffix(equipable, AffixType.PREFIX);
+                    AddAffix(equipable, AffixType.SUFFIX);
+                    AddAffix(equipable, AffixType.PREFIX);
+                    AddAffix(equipable, AffixType.SUFFIX);
                     break;
                 default:
-                    Debug.LogError("Shomehow there is more than 4 affixes");
+                    Debug.LogError("Somehow there is more than 4 affixes");
                     break;
             }
             
+            equipable.GenerateGuid();
             
             //return newItem;
         }
 
+        public void AddAffix(EquipableItem equipable, AffixType affixType)
+        {
+            if (affixType == AffixType.PREFIX)
+            {
+                Affix pref = equipable.Prefixes.Count > 0 ? equipable.Prefixes[0] : null;
+                equipable.AddPrefix(AffixGenerator.GenerateAffix(AffixType.PREFIX, equipable.EquipmentType, pref));
+            }
+            else
+            {
+                Affix suff = equipable.Suffixes.Count > 0 ? equipable.Suffixes[0] : null;
+                Affix a = AffixGenerator.GenerateAffix(AffixType.SUFFIX, equipable.EquipmentType, suff);
+                equipable.AddSuffix(a);
+                if (defensivesLocal.Contains(a.Affix1))
+                {
+                    HandleLocalDefensives(equipable, a);
+                }
+            }
+        }
+        
+        
+        public void HandleLocalDefensives(EquipableItem equipable, Affix affix)
+        {
+            int armour = equipable.DefensiveStats.x;
+            int magicResistance =equipable.DefensiveStats.y;
+            int dodge = equipable.DefensiveStats.z;
+            if (affix.Affix1 == Affixes.INCREASED_ARMOUR_LOCAL)
+            {
+                armour = (int)Math.Floor(equipable.DefensiveStats.x * (1 + affix.Value * 0.01f));
+            }
+            else if (affix.Affix1 == Affixes.INCREASED_MAGIC_RESISTANCE_LOCAL)
+            {
+                magicResistance = (int)Math.Floor(equipable.DefensiveStats.y * (1 + affix.Value * 0.01f));
+            }
+            else if (affix.Affix1 == Affixes.INCREASED_DODGE_LOCAL)
+            {
+                dodge = (int)Math.Floor(equipable.DefensiveStats.z * (1 + affix.Value * 0.01f));
+            }
+            equipable.SetTotalDefensive(new Vector3Int(armour, magicResistance, dodge));
+        }
+        
         public EquipmentBase[] GetBasesTable(int tier)
         {
             switch (tier)

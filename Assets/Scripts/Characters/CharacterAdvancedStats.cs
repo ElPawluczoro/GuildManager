@@ -1,11 +1,14 @@
-﻿using UnityEngine;
+﻿using System.Collections.Generic;
+using ArtificeToolkit.Attributes;
+using ArtificeToolkit.Runtime.SerializedDictionary;
+using UnityEngine;
 using ProjectEnums;
 
 namespace Characters
 {
     public class CharacterAdvancedStats : MonoBehaviour
     {
-        private float increasedBasicStat;
+        /*private float increasedBasicStat;
         private float increasedHealth;
         private float increasedDamage;
         private float increasedArmour;
@@ -31,9 +34,9 @@ namespace Characters
         private float burnChance;
         private float increasedBleedChance;
         private float increasedBurnChance;
-        private float increasedSkillDuration;
+        private float increasedSkillDuration;*/
 
-        public float IncreasedBasicStat { get { return increasedBasicStat; } }
+        /*public float IncreasedBasicStat { get { return increasedBasicStat; } }
         public float IncreasedHealth { get { return increasedHealth; } }
         public float IncreasedDamage { get { return increasedDamage; } }
         public float IncreasedArmour { get { return increasedArmour; } }
@@ -59,9 +62,9 @@ namespace Characters
         public float BurnChance { get { return burnChance; } }
         public float IncreasedBleedChance { get { return increasedBleedChance; } }
         public float IncreasedBurnChance { get { return increasedBurnChance; } }
-        public float IncreasedSkillDuration { get { return increasedSkillDuration; } }
+        public float IncreasedSkillDuration { get { return increasedSkillDuration; } }*/
 
-        public void ModifyIncreasedBasicStat(EOperation op, float val) => Modify(ref increasedBasicStat, op, val);
+        /*public void ModifyIncreasedBasicStat(EOperation op, float val) => Modify(ref increasedBasicStat, op, val);
         public void ModifyIncreasedHealth(EOperation op, float val) => Modify(ref increasedHealth, op, val);
         public void ModifyIncreasedDamage(EOperation op, float val) => Modify(ref increasedDamage, op, val);
         public void ModifyIncreasedArmour(EOperation op, float val) => Modify(ref increasedArmour, op, val);
@@ -87,13 +90,50 @@ namespace Characters
         public void ModifyBurnChance(EOperation op, float val) => Modify(ref burnChance, op, val);
         public void ModifyIncreasedBleedChance(EOperation op, float val) => Modify(ref increasedBleedChance, op, val);
         public void ModifyIncreasedBurnChance(EOperation op, float val) => Modify(ref increasedBurnChance, op, val);
-        public void ModifyIncreasedSkillDuration(EOperation op, float val) => Modify(ref increasedSkillDuration, op, val);
+        public void ModifyIncreasedSkillDuration(EOperation op, float val) => Modify(ref increasedSkillDuration, op, val);*/
 
-        private void Modify(ref float field, EOperation operation, float value)
+        [SerializeField, ReadOnly, ForceArtifice] private SerializedDictionary<EAdvancedStat, float> advancedStats = new()
         {
-            if (operation == EOperation.SET) { field = value; return; }
+            { EAdvancedStat.INCREASED_STRENGTH, 0f },
+            { EAdvancedStat.INCREASED_DEXTERITY, 0f },
+            { EAdvancedStat.INCREASED_INTELLIGENCE, 0f },
+            { EAdvancedStat.INCREASED_HEALTH, 0f },
+            { EAdvancedStat.INCREASED_DAMAGE, 0f },
+            { EAdvancedStat.INCREASED_ARMOUR, 0f },
+            { EAdvancedStat.INCREASED_DODGE, 0f },
+            { EAdvancedStat.INCREASED_MAGIC_RESISTANCE, 0f },
+            { EAdvancedStat.DAMAGE_REDUCTION, 0f },
+            { EAdvancedStat.BLOCK_CHANCE, 0f },
+            { EAdvancedStat.BLOCK_DAMAGE_REDUCTION, 0f },
+            { EAdvancedStat.HEALTH_REGEN, 0f },
+            { EAdvancedStat.MANA_REGEN, 0f },
+            { EAdvancedStat.INCREASED_PHYSICAL_DAMAGE, 0f },
+            { EAdvancedStat.INCREASED_MAGIC_DAMAGE, 0f },
+            { EAdvancedStat.INCREASED_SPELL_SKILL_DAMAGE, 0f },
+            { EAdvancedStat.INCREASED_ATTACK_SKILL_DAMAGE, 0f },
+            { EAdvancedStat.INCREASED_ATTACK_RANGE, 0f },
+            { EAdvancedStat.INCREASED_ATTACK_SPEED, 0f },
+            { EAdvancedStat.INCREASED_CAST_SPEED, 0f },
+            { EAdvancedStat.ARMOUR_PENETRATION, 0f },
+            { EAdvancedStat.MAGIC_DAMAGE_PENETRATION, 0f },
+            { EAdvancedStat.ADDITIONAL_PROJECTILES, 0f },
+            { EAdvancedStat.LIFE_STEAL, 0f },
+            { EAdvancedStat.BLEED_CHANCE, 0f },
+            { EAdvancedStat.BURN_CHANCE, 0f },
+            { EAdvancedStat.INCREASED_BLEED_CHANCE, 0f },
+            { EAdvancedStat.INCREASED_BURN_CHANCE, 0f },
+            { EAdvancedStat.INCREASED_SKILL_DURATION, 0f }
+        };
+
+        public SerializedDictionary<EAdvancedStat, float> AdvancedStats => advancedStats;
+        
+        public void Modify(EAdvancedStat advancedStat, EOperation operation, float value)
+        {
+            if (operation == EOperation.SET) { advancedStats[advancedStat] = value; return; }
             if (operation == EOperation.SUBSTRACT) { value *= -1; }
-            field += value;
+            advancedStats[advancedStat] += value;
         }
+        
+        
     }
 }

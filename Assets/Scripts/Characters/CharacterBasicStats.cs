@@ -1,4 +1,8 @@
 ﻿using System;
+using System.Collections.Generic;
+using ArtificeToolkit.Attributes;
+using ArtificeToolkit.Runtime.SerializedDictionary;
+using Characters.Player.CharacterItem;
 using UnityEngine;
 using ProjectEnums;
 
@@ -6,7 +10,7 @@ namespace Characters
 {
     public class CharacterBasicStats : MonoBehaviour
     {
-        [SerializeField] private Int16 strength;
+        /*[SerializeField] private Int16 strength;
         [SerializeField] private Int16 dexterity;
         [SerializeField] private Int16 intelligence;
         [SerializeField] private Int16 vitality;
@@ -30,9 +34,9 @@ namespace Characters
         public Int16 AttackSpeed { get { return attackSpeed; } }    
         public Int16 CastSpeed { get {return castSpeed; } } 
         public Int16 MovementSpeed { get { return movementSpeed; } }
-        public Int16 Mana { get { return mana; } }
-
-        public void ModifyStrength(EOperation op, Int16 val) => Modify(ref strength, op, val);
+        public Int16 Mana { get { return mana; } }*/
+        
+        /*public void ModifyStrength(EOperation op, Int16 val) => Modify(ref strength, op, val);
         public void ModifyDexterity(EOperation op, Int16 val) => Modify(ref dexterity, op, val);
         public void ModifyIntelligence(EOperation op, Int16 val) => Modify(ref intelligence, op, val);
         public void ModifyVitality(EOperation op, Int16 val) => Modify(ref vitality, op, val);
@@ -43,13 +47,34 @@ namespace Characters
         public void ModifyAttackSpeed(EOperation op, Int16 val) => Modify(ref attackSpeed, op, val);
         public void ModifyCastSpeed(EOperation op, Int16 val) => Modify(ref castSpeed, op, val);
         public void ModifyMovementSpeed(EOperation op, Int16 val) => Modify(ref movementSpeed, op, val);
-        public void ModifyMana(EOperation op, Int16 val) => Modify(ref mana, op, val);
-
-        private void Modify(ref Int16 field, EOperation operation, Int16 value)
+        public void ModifyMana(EOperation op, Int16 val) => Modify(ref mana, op, val);*/
+        
+        [SerializeField] private SerializedDictionary<ECharacterBasicStat, short> stats = new()
         {
-            if (operation == EOperation.SET) { field = value; return; }
+            { ECharacterBasicStat.STRENGTH, 0 },
+            { ECharacterBasicStat.DEXTERITY, 0 },
+            { ECharacterBasicStat.INTELLIGENCE, 0 },
+            { ECharacterBasicStat.VITALITY, 0 },
+            { ECharacterBasicStat.ARMOUR, 0 },
+            { ECharacterBasicStat.MAGIC_RESISTANCE, 0 },
+            { ECharacterBasicStat.DODGE, 0 },
+            { ECharacterBasicStat.ATTACK_RANGE, 0 },
+            { ECharacterBasicStat.ATTACK_SPEED, 0 },
+            { ECharacterBasicStat.CAST_SPEED, 0 },
+            { ECharacterBasicStat.MOVEMENT_SPEED, 0 },
+            { ECharacterBasicStat.MANA, 0 },
+            { ECharacterBasicStat.MIN_ATTACK_DAMAGE, 0 },
+            { ECharacterBasicStat.MAX_ATTACK_DAMAGE, 0 }
+        };
+        
+        public SerializedDictionary<ECharacterBasicStat, short> BasicStats => stats;
+
+        public void Modify(ECharacterBasicStat stat, EOperation operation, short value)
+        {
+            if (!stats.ContainsKey(stat)) return;
+            if (operation == EOperation.SET) { stats[stat] = value; return; }
             if (operation == EOperation.SUBSTRACT) { value *= -1; }
-            field += value;
+            stats[stat] += value;
         }
 
 

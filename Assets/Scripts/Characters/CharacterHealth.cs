@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using ProjectEnums;
+using UnityEngine;
 
 namespace Characters
 {
@@ -24,26 +25,26 @@ namespace Characters
         public void UpdateMaxHealth()
         {
             //float currentHealthPortion = currentHealth / health; //implement if increasing max helth during battle become possible
-            health = bStats.Vitality * 5; //TODO placeholder health calculating algorithm
+            health = bStats.BasicStats[ECharacterBasicStat.VITALITY] * 5; //TODO placeholder health calculating algorithm
             //currentHealth = health * currentHealthPortion;
 
         }
 
         public void UpdateHealthRegeneration()
         {
-            healthRegeneration = aStats.HealthRegen;
+            healthRegeneration = aStats.AdvancedStats[EAdvancedStat.HEALTH_REGEN];
         }
 
-        public void RecieveDamage(DamageType damageType, float damage) //TODO placeholder damagereduction
+        public void RecieveDamage(DamageType damageType, float damage) //TODO placeholder damage reduction
         {
             float reduction = 0;
             if (damageType == DamageType.PHYSICAL)
             {
-                reduction = bStats.Armour;
+                reduction = bStats.BasicStats[ECharacterBasicStat.ARMOUR];
             }
             else
             {
-                reduction = bStats.MagicResistance;
+                reduction = bStats.BasicStats[ECharacterBasicStat.MAGIC_RESISTANCE];
             }
 
             float actualDamage = damage - reduction;

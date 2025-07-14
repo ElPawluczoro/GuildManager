@@ -1,9 +1,12 @@
 ﻿// ReSharper disable ParameterHidesMember
+
+using System;
 using System.Collections.Generic;
 using ProjectEnums;
 using UnityEngine;
 namespace Characters.Player.CharacterItem
 {
+    [Serializable]
     public class EquipableItem : Item
     {
         [SerializeField] private EquipmentType equipmentType;
@@ -13,11 +16,16 @@ namespace Characters.Player.CharacterItem
 
         [SerializeField] private Rarity rarity;
         [SerializeField] private byte levelRequirement;
+        /// <summary>
+        /// str, dex, int
+        /// </summary>
         [SerializeField] private Vector3Int statRequirements; //str, dex, int
-        [SerializeField] private Vector3Int defensiveStats = Vector3Int.zero; //armour, magic_resistance
+        [SerializeField] private Vector3Int defensiveStats = Vector3Int.zero; //armour, magic_resistance, dodge
+        [SerializeField] private Vector3Int totalDefensiveStats = Vector3Int.zero; //armour, magic_resistance, dodge
         [SerializeField] private Vector2Int attackDamage = Vector2Int.zero; //min, max
         [SerializeField] private float attackSpeed = 0;
         [SerializeField] private byte blockChance = 0;
+        [SerializeField] private Guid guid;
 
         [SerializeField] public EquipmentType EquipmentType => equipmentType;
 
@@ -27,15 +35,21 @@ namespace Characters.Player.CharacterItem
 
         public byte LevelRequirement => levelRequirement;
 
+        /// <summary>
+        /// str, dex, int
+        /// </summary>
         public Vector3Int StatRequirements => statRequirements;
 
         public Vector3Int DefensiveStats => defensiveStats;
+        public Vector3Int TotalDefensiveStats => totalDefensiveStats;
 
         public Vector2Int AttackDamage => attackDamage;
 
         public float AttackSpeed => attackSpeed;
         
         public byte BlockChance => blockChance;
+
+        public Guid Guid => guid;
 
         /// <summary>
         /// Jewelery
@@ -61,6 +75,12 @@ namespace Characters.Player.CharacterItem
         public void SetDefensiveProperties(Vector3Int defensiveStats)
         {
             this.defensiveStats = defensiveStats;
+            this.totalDefensiveStats = defensiveStats;
+        }
+
+        public void SetTotalDefensive(Vector3Int defensiveStats)
+        {
+            this.totalDefensiveStats = defensiveStats;
         }
 
         /// <summary>
@@ -122,7 +142,30 @@ namespace Characters.Player.CharacterItem
             }
             suffixes.Remove(affix);
         }
-        
-        
+
+        public void GenerateGuid()
+        {
+            guid = Guid.NewGuid();
+        }
+
+        public void TestEquip()
+        {
+            FindAnyObjectByType<CharacterEquipment>().foo(this);
+        }
+
+        public static bool operator ==(EquipableItem a, EquipableItem b)
+        {
+            if(!a || !b) {Debug.Log("false"); return false;}
+            Debug.Log((a.Guid == b.Guid));
+            
+            if(!a || !b) return false;
+            return (a.Guid == b.Guid);
+        }
+
+        public static bool operator !=(EquipableItem a, EquipableItem b)
+        {
+            if(!a && b || a && !b) return true;
+            return !(a.Guid == b.Guid);
+        }
     }
 }

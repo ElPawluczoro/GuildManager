@@ -37,7 +37,7 @@ namespace Characters.Player.CharacterItem
         //suffixes
         private Vector2Int[] defensivesRanges = { new(10, 15), new(16, 25), new(26, 40) };
         private Vector2Int[] increasedGlobalDamageRanges = { new(3, 7), new(8, 15), new(16, 30) };
-        private Vector2Int[] increasedDefensivesLocal = { new(10, 20), new(21, 40), new(41, 75) };
+        private Vector2Int[] increasedDefensivesLocal = { new(100, 200), new(201, 300), new(301, 400) };
         private Vector2Int[] damageReductionRanges = { new(1, 2), new(3, 5), new(6, 9) };
         private Vector2Int[] blockChanceRanges = { new(1, 2), new(3, 4), new(5, 7) };
         private Vector2Int[] blockDamageReductionRanges = { new(3, 5), new(6, 9), new(10, 15) };
@@ -56,7 +56,7 @@ namespace Characters.Player.CharacterItem
             Affixes[] helmetAffixes =
             {
                 Affixes.FLAT_STRENGTH, Affixes.FLAT_DEXTERITY, Affixes.FLAT_INTELLIGENCE,
-                Affixes.MAX_HEALTH, Affixes.HEALTH_REGEN, Affixes.ARMOUR, Affixes.MAGIC_RESISTANCE, Affixes.DODGE,
+                Affixes.FLAT_VITALITY, Affixes.HEALTH_REGEN, Affixes.ARMOUR, Affixes.MAGIC_RESISTANCE, Affixes.DODGE,
                 Affixes.INCREASED_ARMOUR_LOCAL, Affixes.INCREASED_MAGIC_RESISTANCE_LOCAL, Affixes.INCREASED_DODGE_LOCAL
             };
             InitializeAffixGroup(EquipmentType.HELMET, helmetAffixes);
@@ -64,7 +64,7 @@ namespace Characters.Player.CharacterItem
             Affixes[] bodyArmourPrefixes =
             {
                 Affixes.FLAT_STRENGTH, Affixes.FLAT_DEXTERITY, Affixes.FLAT_INTELLIGENCE,
-                Affixes.MAX_HEALTH, Affixes.HEALTH_REGEN, Affixes.ARMOUR, Affixes.MAGIC_RESISTANCE, Affixes.DODGE,
+                Affixes.FLAT_VITALITY, Affixes.HEALTH_REGEN, Affixes.ARMOUR, Affixes.MAGIC_RESISTANCE, Affixes.DODGE,
                 Affixes.INCREASED_ARMOUR_LOCAL, Affixes.INCREASED_MAGIC_RESISTANCE_LOCAL, Affixes.INCREASED_DODGE_LOCAL, 
                 Affixes.DAMAGE_REDUCTION
             };
@@ -73,7 +73,7 @@ namespace Characters.Player.CharacterItem
             Affixes[] bootsPrefixes =
             {
                 Affixes.FLAT_STRENGTH, Affixes.FLAT_DEXTERITY, Affixes.FLAT_INTELLIGENCE,
-                Affixes.MAX_HEALTH, Affixes.ARMOUR, Affixes.MAGIC_RESISTANCE, Affixes.DODGE,
+                Affixes.FLAT_VITALITY, Affixes.ARMOUR, Affixes.MAGIC_RESISTANCE, Affixes.DODGE,
                 Affixes.INCREASED_ARMOUR_LOCAL, Affixes.INCREASED_MAGIC_RESISTANCE_LOCAL, Affixes.INCREASED_DODGE_LOCAL, 
                 Affixes.DAMAGE_REDUCTION
             };
@@ -82,7 +82,7 @@ namespace Characters.Player.CharacterItem
             Affixes[] glovesPrefixes =
             {
                 Affixes.FLAT_STRENGTH, Affixes.FLAT_DEXTERITY, Affixes.FLAT_INTELLIGENCE,
-                Affixes.MAX_HEALTH, Affixes.ARMOUR, Affixes.MAGIC_RESISTANCE, Affixes.DODGE,
+                Affixes.FLAT_VITALITY, Affixes.ARMOUR, Affixes.MAGIC_RESISTANCE, Affixes.DODGE,
                 Affixes.INCREASED_ARMOUR_LOCAL, Affixes.INCREASED_MAGIC_RESISTANCE_LOCAL, Affixes.INCREASED_DODGE_LOCAL,
                 Affixes.INCREASED_CAST_SPEED, Affixes.INCREASED_ATTACK_SPEED, 
                 Affixes.INCREASED_ATTACK_SKILL_DAMAGE, Affixes.INCREASED_SPELL_SKILL_DAMAGE
@@ -92,7 +92,7 @@ namespace Characters.Player.CharacterItem
             Affixes[] ringAffixes =
             {
                 Affixes.FLAT_STRENGTH, Affixes.FLAT_DEXTERITY, Affixes.FLAT_INTELLIGENCE,
-                Affixes.MAX_HEALTH, Affixes.HEALTH_REGEN, Affixes.ARMOUR, Affixes.MAGIC_RESISTANCE, Affixes.DODGE,
+                Affixes.FLAT_VITALITY, Affixes.HEALTH_REGEN, Affixes.ARMOUR, Affixes.MAGIC_RESISTANCE, Affixes.DODGE,
                 Affixes.BLEED_CHANCE, Affixes.BURN_CHANCE, Affixes.INCREASED_ARMOUR_GLOBAL,
                 Affixes.INCREASED_MAGIC_RESISTANCE_GLOBAL, Affixes.INCREASED_DODGE_GLOBAL
             };
@@ -101,7 +101,7 @@ namespace Characters.Player.CharacterItem
             Affixes[] amuletAffixes =
             {
                 Affixes.FLAT_STRENGTH, Affixes.FLAT_DEXTERITY, Affixes.FLAT_INTELLIGENCE,
-                Affixes.MAX_HEALTH, Affixes.HEALTH_REGEN, Affixes.ARMOUR, Affixes.MAGIC_RESISTANCE, Affixes.DODGE,
+                Affixes.FLAT_VITALITY, Affixes.HEALTH_REGEN, Affixes.ARMOUR, Affixes.MAGIC_RESISTANCE, Affixes.DODGE,
                 Affixes.BLEED_CHANCE, Affixes.BURN_CHANCE, Affixes.BLOCK_CHANCE, Affixes.BLOCK_DAMAGE_REDUCTION
             };
             InitializeAffixGroup(EquipmentType.AMULET, amuletAffixes);
@@ -136,7 +136,7 @@ namespace Characters.Player.CharacterItem
             Affixes[] shieldAffixes =
             {
                 Affixes.FLAT_STRENGTH, Affixes.FLAT_DEXTERITY, Affixes.FLAT_INTELLIGENCE,
-                Affixes.MAX_HEALTH, Affixes.HEALTH_REGEN, Affixes.ARMOUR, Affixes.MAGIC_RESISTANCE, Affixes.DODGE,
+                Affixes.FLAT_VITALITY, Affixes.HEALTH_REGEN, Affixes.ARMOUR, Affixes.MAGIC_RESISTANCE, Affixes.DODGE,
                 Affixes.INCREASED_ARMOUR_LOCAL, Affixes.INCREASED_MAGIC_RESISTANCE_LOCAL, Affixes.INCREASED_DODGE_LOCAL,
                 Affixes.DAMAGE_REDUCTION, Affixes.BLOCK_CHANCE, Affixes.BLOCK_DAMAGE_REDUCTION
             };
@@ -148,7 +148,7 @@ namespace Characters.Player.CharacterItem
             prefixes.Add(Affixes.FLAT_STRENGTH, flatStatRanges);
             prefixes.Add(Affixes.FLAT_DEXTERITY, flatStatRanges);
             prefixes.Add(Affixes.FLAT_INTELLIGENCE, flatStatRanges);
-            prefixes.Add(Affixes.MAX_HEALTH, maxHealthRanges);
+            prefixes.Add(Affixes.FLAT_VITALITY, maxHealthRanges);
             prefixes.Add(Affixes.HEALTH_REGEN, healthRegenRanges);
             prefixes.Add(Affixes.MANA_REGEN, manaRegenRanges);
             prefixes.Add(Affixes.INCREASED_PHYSICAL_DAMAGE, increasedDamageRanges);
