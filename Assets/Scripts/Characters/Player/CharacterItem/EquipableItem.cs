@@ -25,7 +25,7 @@ namespace Characters.Player.CharacterItem
         [SerializeField] private Vector2Int attackDamage = Vector2Int.zero; //min, max
         [SerializeField] private float attackSpeed = 0;
         [SerializeField] private byte blockChance = 0;
-        [SerializeField] private Guid guid;
+        //private Guid guid;
 
         [SerializeField] public EquipmentType EquipmentType => equipmentType;
 

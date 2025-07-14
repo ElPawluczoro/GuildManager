@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Linq;
 using ProjectEnums;
+using UI.GridEquipment;
 using UnityEngine;
 using Utilities;
+using Grid = UI.GridEquipment.Grid;
 using Random = UnityEngine.Random;
 using Vector2 = System.Numerics.Vector2;
 using Vector3 = System.Numerics.Vector3;
@@ -40,6 +42,7 @@ namespace Characters.Player.CharacterItem
         {
             EquipmentBase equipmentBase = GetBasesTable(tier)[Random.Range(0, GetBasesTable(tier).Length)];
             GameObject newItem = Instantiate(itemPrefab, itemParent);
+            FindAnyObjectByType<Grid>().GridBackend.PlaceItem(newItem.GetComponent<ItemInUI>()); //TODO Consider
             //newItem.transform.parent = itemParent; //for tests
             EquipableItem equipable = newItem.GetComponent<EquipableItem>();
             Rarity rarity = GetRandomRarity();
