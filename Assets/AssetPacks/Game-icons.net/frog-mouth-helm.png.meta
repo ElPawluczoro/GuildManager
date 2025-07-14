@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      frog-mouth-helm_0: 3005624943265528656
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
