@@ -14,7 +14,7 @@ namespace Characters.Player.CharacterItem
         public short ItemValue => itemValue;
         
         public Guid Guid => guid;
-
+        
         //public abstract void CreateItem();
     }
 }

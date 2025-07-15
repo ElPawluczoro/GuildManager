@@ -55,6 +55,7 @@ namespace UI.GridEquipment
                 for (int j = position.y; j < position.y + newItem.SizeY; j++)
                 {   
                     grid[i, j] = newItem.Item.Guid;
+                    Debug.Log($"{i},{j}");
                 }
             }
 

@@ -116,4 +116,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   item: {fileID: 0}
   sizeX: 2
-  sizeY: 4
+  sizeY: 1

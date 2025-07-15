@@ -56,6 +56,16 @@ namespace Utilities
         {
             return Random.Range(baseStats.x, baseStats.y);
         }
+        
+        public static int TranslatePositionToIndex(Vector2Int position, int columnSize)
+        {
+            return columnSize * position.y + position.x;
+        }
+
+        public static Vector2Int TranslateIndexToPosition(int index, int columnSize)
+        {
+            return new Vector2Int(index % columnSize, index / columnSize);
+        }
     }
     
     

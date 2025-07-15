@@ -1,6 +1,7 @@
 using System;
 using UnityEngine;
 using UnityEngine.UI;
+using Utilities;
 
 namespace UI.GridEquipment
 {
@@ -52,13 +53,7 @@ namespace UI.GridEquipment
 
         public void InterpretItemPlacement(ItemInUI item, Vector2Int position)
         {
-            /*int x = position.x * position.y;
-            Transform slot = transform.GetChild(x);
-            Vector3 pos = slot.position;
-            pos += new Vector3(12.5f + (item.SizeX - 1) * 25, -12.5f + (item.SizeY - 1) * -25, 0);
-            item.transform.position = pos;*/
-
-            int index = position.x * position.y;
+            int index = Utils.TranslatePositionToIndex(position, sizeX);
             RectTransform slot = transform.GetChild(index).GetComponent<RectTransform>();
             RectTransform itemRect = item.GetComponent<RectTransform>();
 
@@ -68,10 +63,7 @@ namespace UI.GridEquipment
                 cellSize / 2f * (item.SizeX - 1),
                 -cellSize / 2f * (item.SizeY - 1)
             );
-
-
         }
-
 
 
 

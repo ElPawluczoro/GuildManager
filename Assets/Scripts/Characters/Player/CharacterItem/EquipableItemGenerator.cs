@@ -42,7 +42,6 @@ namespace Characters.Player.CharacterItem
         {
             EquipmentBase equipmentBase = GetBasesTable(tier)[Random.Range(0, GetBasesTable(tier).Length)];
             GameObject newItem = Instantiate(itemPrefab, itemParent);
-            FindAnyObjectByType<Grid>().GridBackend.PlaceItem(newItem.GetComponent<ItemInUI>()); //TODO Consider
             //newItem.transform.parent = itemParent; //for tests
             EquipableItem equipable = newItem.GetComponent<EquipableItem>();
             Rarity rarity = GetRandomRarity();
@@ -110,6 +109,8 @@ namespace Characters.Player.CharacterItem
             }
             
             equipable.GenerateGuid();
+            FindAnyObjectByType<Grid>().GridBackend.PlaceItem(newItem.GetComponent<ItemInUI>()); //TODO Consider
+            
             
             //return newItem;
         }

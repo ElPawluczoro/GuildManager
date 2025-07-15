@@ -25,7 +25,6 @@ namespace Characters.Player.CharacterItem
         [SerializeField] private Vector2Int attackDamage = Vector2Int.zero; //min, max
         [SerializeField] private float attackSpeed = 0;
         [SerializeField] private byte blockChance = 0;
-        //private Guid guid;
 
         [SerializeField] public EquipmentType EquipmentType => equipmentType;
 
@@ -48,8 +47,6 @@ namespace Characters.Player.CharacterItem
         public float AttackSpeed => attackSpeed;
         
         public byte BlockChance => blockChance;
-
-        public Guid Guid => guid;
 
         /// <summary>
         /// Jewelery
@@ -146,6 +143,7 @@ namespace Characters.Player.CharacterItem
         public void GenerateGuid()
         {
             guid = Guid.NewGuid();
+            Debug.Log(guid);
         }
 
         public void TestEquip()
