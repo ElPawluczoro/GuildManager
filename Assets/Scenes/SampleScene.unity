@@ -711,8 +711,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 91689c5bef010284dad5a9baa040a6d2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sizeX: 5
-  sizeY: 5
+  sizeX: 15
+  sizeY: 15
   slotPrefab: {fileID: 1262196353865093761, guid: 14397080e1a28bb4eb26d4f5ba07e1bb, type: 3}
   itemLayer: {fileID: 513933749}
 --- !u!114 &1379815294
@@ -1151,6 +1151,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b7715d298d90406a9e3c9d4d7f7d6575, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  equipmentBasesT1:
+  - {fileID: 11400000, guid: bde907aab4c07ab49b092128dd27f3a7, type: 2}
+  - {fileID: 11400000, guid: 69bdc3283413e5f49bb2eab8221aec5e, type: 2}
+  - {fileID: 11400000, guid: a694e318c39349a4d8c9fd322fe55094, type: 2}
 --- !u!4 &2040754031
 Transform:
   m_ObjectHideFlags: 0

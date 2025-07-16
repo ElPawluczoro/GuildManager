@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Linq;
+using Characters.Player.CharacterItem.SEquipmentBases;
 using ProjectEnums;
 using UI.GridEquipment;
 using UnityEngine;
@@ -40,26 +41,28 @@ namespace Characters.Player.CharacterItem
         
         public void GenerateItem(int tier) //Should return gameobject?
         {
-            EquipmentBase equipmentBase = GetBasesTable(tier)[Random.Range(0, GetBasesTable(tier).Length)];
+            SEquipmentBase equipmentBase = GetBasesTable(tier)[Random.Range(0, GetBasesTable(tier).Length)];
             GameObject newItem = Instantiate(itemPrefab, itemParent);
-            //newItem.transform.parent = itemParent; //for tests
             EquipableItem equipable = newItem.GetComponent<EquipableItem>();
             Rarity rarity = GetRandomRarity();
             
-            if (equipmentBase is ArmourBase armourBase)
+            newItem.GetComponent<ItemInUI>().SetSize((byte)equipmentBase.Size.x, (byte)equipmentBase.Size.y);
+            newItem.GetComponent<ItemInUI>().SetImage(equipmentBase.Icon);
+            
+            if (equipmentBase is SArmourBase armourBase)
             {
                 int armour = Utils.GetRandomValueFromBase(armourBase.Armour);
                 int magicResistance = Utils.GetRandomValueFromBase(armourBase.MagicResistance);
                 int dodge = Utils.GetRandomValueFromBase(armourBase.Dodge);
                 
                 equipable.SetDefensiveProperties(new Vector3Int(armour, magicResistance, dodge));
-                if (equipmentBase is ShieldBase shieldBase)
+                if (equipmentBase is SShieldBase shieldBase)
                 {
                     byte blockChance = (byte)Utils.GetRandomValueFromBase(shieldBase.BlockChance);
                     equipable.SetShieldProperties(blockChance);
                 }
             }
-            else if (equipmentBase is WeaponBase weaponBase)
+            else if (equipmentBase is SWeaponBase weaponBase)
             {
                 int minDamage = Utils.GetRandomValueFromBase(weaponBase.MinDamage);
                 int maxDamage = minDamage + weaponBase.MaxDamageAdd;
@@ -109,6 +112,7 @@ namespace Characters.Player.CharacterItem
             }
             
             equipable.GenerateGuid();
+            newItem.GetComponent<ItemInUI>().UpdateSize();
             FindAnyObjectByType<Grid>().GridBackend.PlaceItem(newItem.GetComponent<ItemInUI>()); //TODO Consider
             
             
@@ -155,7 +159,7 @@ namespace Characters.Player.CharacterItem
             equipable.SetTotalDefensive(new Vector3Int(armour, magicResistance, dodge));
         }
         
-        public EquipmentBase[] GetBasesTable(int tier)
+        public SEquipmentBase[] GetBasesTable(int tier)
         {
             switch (tier)
             {

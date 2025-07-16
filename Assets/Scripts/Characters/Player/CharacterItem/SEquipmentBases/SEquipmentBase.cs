@@ -2,19 +2,20 @@
 
 namespace Characters.Player.CharacterItem.SEquipmentBases
 {
-    [CreateAssetMenu(fileName = "FILENAME", menuName = "MENUNAME", order = 0)]
-    public class SEquipmentBase : ScriptableObject
+    public abstract class SEquipmentBase : ScriptableObject
     {
-        private string baseName;
-        private Vector3Int statRequirements;
-        private byte levelRequirement;
-        private EquipmentType equipmentType;
+        [SerializeField] private string baseName;
+        [SerializeField] private Vector3Int statRequirements;
+        [SerializeField] private byte levelRequirement;
+        [SerializeField] private EquipmentType equipmentType;
+        [SerializeField] private Sprite icon;
+        [SerializeField] private Vector2 size;
 
         public string BaseName => baseName;
         public Vector3Int StatRequirements => statRequirements;
-
         public byte LevelRequirement => levelRequirement;
-
         public EquipmentType EquipmentType => equipmentType;
+        public Sprite Icon => icon;
+        public Vector2 Size => size;
     }
 }

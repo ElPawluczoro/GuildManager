@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using Characters.Player.CharacterItem.SEquipmentBases;
 using UnityEngine;
 
 // ReSharper disable InconsistentNaming
@@ -8,16 +9,16 @@ namespace Characters.Player.CharacterItem
 {
     public class EquipmentBases : MonoBehaviour
     {
-        private List<EquipmentBase> equipmentBasesT1 = new List<EquipmentBase>();
+        [SerializeField] private List<SEquipmentBase> equipmentBasesT1 = new List<SEquipmentBase>();
 
-        public static EquipmentBase[] equipmentBasesDatabaseT1;
+        public static SEquipmentBase[] equipmentBasesDatabaseT1;
 
         private void Awake()
         {
-            GenerateBases();
+            equipmentBasesDatabaseT1 = equipmentBasesT1.ToArray();
         }
 
-        public void GenerateBases()
+        /*public void GenerateBases()
         {
             // T1
             // HELMETS
@@ -141,14 +142,14 @@ namespace Characters.Player.CharacterItem
                 Vector2Int.zero, new Vector2Int(2, 5), Vector2Int.zero, new Vector2Int(10, 15)));
             
             equipmentBasesDatabaseT1 = equipmentBasesT1.ToArray();
-        }
+        }*/
 
 
 
 
     }
 
-    public class EquipmentBase
+    /*public class EquipmentBase
     {
         private string baseName;
         private Vector3Int statRequirements;
@@ -176,9 +177,9 @@ namespace Characters.Player.CharacterItem
             this.levelRequirement = levelRequirement;
             this.equipmentType = equipmentType;
         }
-    }
+    }*/
 
-    public class ArmourBase : EquipmentBase
+    /*public class ArmourBase : EquipmentBase
     {
         private Vector2Int armour; //min, max
         private Vector2Int magicResistance; //min max
@@ -196,9 +197,9 @@ namespace Characters.Player.CharacterItem
             this.magicResistance = magicResistance;
             this.dodge = dodge;
         }
-    }
+    }*/
 
-    public class ShieldBase : ArmourBase
+    /*public class ShieldBase : ArmourBase
     {
         private Vector2Int blockChance;
 
@@ -210,9 +211,9 @@ namespace Characters.Player.CharacterItem
         {
             this.blockChance = blockChance;
         }
-    }
+    }*/
 
-    public class WeaponBase : EquipmentBase
+    /*public class WeaponBase : EquipmentBase
     {
         private Vector2Int minDamage;
         private int maxDamageAdd;
@@ -232,6 +233,6 @@ namespace Characters.Player.CharacterItem
             this.maxDamageAdd = maxDamageAdd;
             this.attackSpeed = attackSpeed;
         }
-    }
+    }*/
         
 }
