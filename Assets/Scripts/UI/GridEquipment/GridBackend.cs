@@ -1,5 +1,6 @@
 ﻿using System;
 using UnityEngine;
+using Utilities;
 
 namespace UI.GridEquipment
 {
@@ -46,6 +47,7 @@ namespace UI.GridEquipment
             {
                 for (int j = position.y; j < position.y + newItem.SizeY; j++)
                 {   
+                    Debug.Log("Space not free");
                     if(grid[i, j] != Guid.Empty) return false;
                 }
             }
@@ -59,12 +61,31 @@ namespace UI.GridEquipment
                 }
             }
 
+            newItem.currentPlacementIndex =
+                Utils.TranslatePositionToIndex(new Vector2Int(position.x, position.y), grid.GetLength(0));
+            newItem.currentGrid = this;
+
             if (onItemPlace != null)
             {
                 onItemPlace.Invoke(newItem, position);
             }
             
+            Debug.Log("Completed");
             return true;
+        }
+
+        public void RemoveItem(ItemInUI newItem)
+        {
+            for (int i = 0; i < grid.GetLength(0); i++)
+            {
+                for (int j = 0; j < grid.GetLength(1); j++)
+                {
+                    if (grid[i, j] == newItem.Item.Guid)
+                    {
+                        grid[i, j] = Guid.Empty;
+                    }
+                }
+            }
         }
     }
 }

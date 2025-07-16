@@ -42,7 +42,8 @@ namespace UI.GridEquipment
             GetComponent<GridLayoutGroup>().constraintCount = sizeX;
             for (int i = 0; i < sizeX * sizeY; i++)
             { 
-                Instantiate(slotPrefab, transform);   
+                GridSlot gridSlot = Instantiate(slotPrefab, transform).GetComponent<GridSlot>();
+                gridSlot.index = i;
             }
 
             //itemLayer.GetComponent<RectTransform>().pivot = gameObject.GetComponent<RectTransform>().pivot;
