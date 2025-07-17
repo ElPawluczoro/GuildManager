@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c4c30240e2db4c5583916d791baf0ef4, type: 3}
+  m_Name: Gloves3
+  m_EditorClassIdentifier: 
+  baseName: d gloves
+  statRequirements: {x: 0, y: 0, z: 2}
+  levelRequirement: 1
+  equipmentType: 3
+  icon: {fileID: -3960259407536092533, guid: 822655967a9aee24dad7cb7decf84de5, type: 3}
+  size: {x: 2, y: 2}
+  armour: {x: 0, y: 0}
+  magicResistance: {x: 0, y: 0}
+  dodge: {x: 1, y: 3}

@@ -10,14 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c4c30240e2db4c5583916d791baf0ef4, type: 3}
-  m_Name: ArmorBase
+  m_Name: Boots3
   m_EditorClassIdentifier: 
-  baseName: Helmet
-  statRequirements: {x: 2, y: 2, z: 0}
-  levelRequirement: 0
-  equipmentType: 0
-  icon: {fileID: 3005624943265528656, guid: 7eb84761d60feb44f94e2f3ff03bf025, type: 3}
+  baseName: d boots
+  statRequirements: {x: 0, y: 0, z: 2}
+  levelRequirement: 1
+  equipmentType: 2
+  icon: {fileID: -2252791993131303061, guid: 6f02e03ff7bfa0944bfba3c1cca59095, type: 3}
   size: {x: 2, y: 2}
-  armour: {x: 2, y: 5}
-  magicResistance: {x: 2, y: 5}
-  dodge: {x: 0, y: 0}
+  armour: {x: 0, y: 0}
+  magicResistance: {x: 0, y: 0}
+  dodge: {x: 2, y: 4}

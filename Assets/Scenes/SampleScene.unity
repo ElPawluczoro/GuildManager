@@ -1152,9 +1152,25 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   equipmentBasesT1:
+  - {fileID: 11400000, guid: bdf3d53c68b00954b91267005918ca6f, type: 2}
+  - {fileID: 11400000, guid: aa17b71a780b8da4ca539531bf45d92c, type: 2}
+  - {fileID: 11400000, guid: 3e0420a48fde02c459bbf39a4bc954ef, type: 2}
+  - {fileID: 11400000, guid: 595acee082c9c3244889e28d32d78897, type: 2}
+  - {fileID: 11400000, guid: d0ec4ada62e029241b7d1c27e3041304, type: 2}
+  - {fileID: 11400000, guid: 1a4d50c62082ec9438ec4802e3cf4909, type: 2}
+  - {fileID: 11400000, guid: b89414b6a36286b46a034989b3aa03cc, type: 2}
+  - {fileID: 11400000, guid: 10d9038528626ca49abb1387114feca3, type: 2}
+  - {fileID: 11400000, guid: bbfbf9a27d778e6429e2dbd72b69b85e, type: 2}
   - {fileID: 11400000, guid: bde907aab4c07ab49b092128dd27f3a7, type: 2}
-  - {fileID: 11400000, guid: 69bdc3283413e5f49bb2eab8221aec5e, type: 2}
-  - {fileID: 11400000, guid: a694e318c39349a4d8c9fd322fe55094, type: 2}
+  - {fileID: 11400000, guid: 9bd7a3aa1887a9940909546d204469ef, type: 2}
+  - {fileID: 11400000, guid: 05d52ecb6113a674d82bb67ecbde77c8, type: 2}
+  - {fileID: 11400000, guid: d95469c1a2230314996c36ec4cd96305, type: 2}
+  - {fileID: 11400000, guid: ca2be776c93b1934591e32f43fac3da7, type: 2}
+  - {fileID: 11400000, guid: 80b1d127a4fa5b240a87e807535541c2, type: 2}
+  - {fileID: 11400000, guid: 2b3ff21efc14f18469b98c53d223899e, type: 2}
+  - {fileID: 11400000, guid: 1211305d733d2e94492687d27045fb74, type: 2}
+  - {fileID: 11400000, guid: 3112bace645690a468116b2ad4e8f941, type: 2}
+  - {fileID: 11400000, guid: 6d77ebca956f8b440b988b6997c1c57a, type: 2}
 --- !u!4 &2040754031
 Transform:
   m_ObjectHideFlags: 0
