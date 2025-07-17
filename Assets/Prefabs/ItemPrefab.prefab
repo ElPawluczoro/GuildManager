@@ -119,6 +119,8 @@ MonoBehaviour:
   item: {fileID: 0}
   sizeX: 2
   sizeY: 1
+  currentPlacementIndex: 0
+  currentSlot: {fileID: 0}
 --- !u!114 &2182173365545809110
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -18,15 +18,16 @@ namespace UI.GridEquipment
             grid = new Guid[gridX, gridY];
         }
 
-        public void PlaceItem(ItemInUI newItem)
+        public bool PlaceItem(ItemInUI newItem)
         {
             for (int i = 0; i < grid.GetLength(0); i++)
             {
                 for (int j = 0; j < grid.GetLength(1); j++)
                 {
-                    if (TryPlaceItem(new Vector2Int(i, j), newItem)) return;
+                    if (TryPlaceItem(new Vector2Int(i, j), newItem)) return true;
                 }
             }
+            return false;
         }
 
         public bool TryPlaceItem(Vector2Int position, ItemInUI newItem)

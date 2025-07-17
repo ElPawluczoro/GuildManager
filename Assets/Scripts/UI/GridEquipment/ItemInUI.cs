@@ -1,5 +1,6 @@
 ﻿using System;
 using Characters.Player.CharacterItem;
+using UI.CharacterPanel;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -12,6 +13,7 @@ namespace UI.GridEquipment
 
         public int currentPlacementIndex;
         public GridBackend currentGrid;
+        public EquipmentSlot currentSlot;
         
         private byte cellSize = 25;
         public Item Item => item;

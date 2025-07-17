@@ -92,14 +92,12 @@ namespace Characters.Player
                 case EquipmentType.OFF_HAND_WEAPON:
                 case EquipmentType.OFF_HAND_SHIELD:
                 //case EquipmentType.OFF_HAND_MAGIC_ITEM:
-                if (mainHand&& mainHand.EquipmentType == EquipmentType.TWO_HANDED ||
-                    mainHand.EquipmentType == EquipmentType.BOW)
+                if (mainHand&& mainHand.EquipmentType is EquipmentType.TWO_HANDED or EquipmentType.BOW)
                 {
                     UnEquip(ref mainHand, mainHand);
                 }
                     Equip(ref offHand, equipable);
                     break;
-                
             }
         }
 
@@ -119,6 +117,12 @@ namespace Characters.Player
                 Affixes.INCREASED_ARMOUR_LOCAL, Affixes.INCREASED_DODGE_LOCAL, Affixes.INCREASED_MAGIC_RESISTANCE_LOCAL,
                 Affixes.ARMOUR, Affixes.MAGIC_RESISTANCE, Affixes.DODGE
             };
+
+            if (equipable == slot)
+            {
+                UnEquip(ref slot, slot);
+                return;
+            }
             
             if (!CheckStatRequirements(equipable)) return;
             UnEquip(ref slot, slot);

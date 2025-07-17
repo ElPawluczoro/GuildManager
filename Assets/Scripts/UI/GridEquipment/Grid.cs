@@ -58,7 +58,7 @@ namespace UI.GridEquipment
             RectTransform slot = transform.GetChild(index).GetComponent<RectTransform>();
             RectTransform itemRect = item.GetComponent<RectTransform>();
 
-            itemRect.SetParent(itemLayer.GetComponent<RectTransform>(), false);
+            itemRect.SetParent(itemLayer.GetComponent<RectTransform>());
 
             itemRect.anchoredPosition = slot.anchoredPosition + new Vector2(
                 cellSize / 2f * (item.SizeX - 1),
