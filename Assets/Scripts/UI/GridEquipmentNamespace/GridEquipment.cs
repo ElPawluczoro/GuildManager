@@ -3,9 +3,9 @@ using UnityEngine;
 using UnityEngine.UI;
 using Utilities;
 
-namespace UI.GridEquipment
+namespace UI.GridEquipmentNamespace
 {
-    public class Grid : MonoBehaviour
+    public class GridEquipment : MonoBehaviour
     {
         [SerializeField] private byte sizeX, sizeY;
         [SerializeField] private GameObject slotPrefab;

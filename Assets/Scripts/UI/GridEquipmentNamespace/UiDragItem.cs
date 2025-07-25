@@ -6,7 +6,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using Utilities;
 
-namespace UI.GridEquipment
+namespace UI.GridEquipmentNamespace
 {
     public class UiDragItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler
     {
@@ -86,8 +86,8 @@ namespace UI.GridEquipment
                 var gridSlot = result.gameObject.GetComponent<GridSlot>();
                 if (gridSlot)
                 {
-                    Grid grid = gridSlot.transform.parent.GetComponent<Grid>();
-                    if (grid.GridBackend.TryPlaceItem(Utils.TranslateIndexToPosition(gridSlot.index, grid.SizeX),
+                    GridEquipment gridEquipment = gridSlot.transform.parent.GetComponent<GridEquipment>();
+                    if (gridEquipment.GridBackend.TryPlaceItem(Utils.TranslateIndexToPosition(gridSlot.index, gridEquipment.SizeX),
                             itemInUI))
                     {
                         if (itemInUI.currentSlot)
@@ -98,8 +98,8 @@ namespace UI.GridEquipment
                     }
                     else
                     {
-                        grid.GridBackend.TryPlaceItem(
-                            Utils.TranslateIndexToPosition(itemInUI.currentPlacementIndex, grid.SizeX),
+                        gridEquipment.GridBackend.TryPlaceItem(
+                            Utils.TranslateIndexToPosition(itemInUI.currentPlacementIndex, gridEquipment.SizeX),
                             itemInUI);
                     }
                     return;

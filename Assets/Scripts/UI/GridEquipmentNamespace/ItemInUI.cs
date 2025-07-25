@@ -4,7 +4,7 @@ using UI.CharacterPanel;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace UI.GridEquipment
+namespace UI.GridEquipmentNamespace
 {
     public class ItemInUI : MonoBehaviour
     {

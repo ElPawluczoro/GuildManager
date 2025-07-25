@@ -2,6 +2,7 @@
 
 using System;
 using System.Collections.Generic;
+using Characters.Player.CharacterItem.SEquipmentBases;
 using ProjectEnums;
 using UnityEngine;
 namespace Characters.Player.CharacterItem
@@ -25,6 +26,8 @@ namespace Characters.Player.CharacterItem
         [SerializeField] private Vector2Int attackDamage = Vector2Int.zero; //min, max
         [SerializeField] private float attackSpeed = 0;
         [SerializeField] private byte blockChance = 0;
+        
+        public SEquipmentBase equipmentBase;
 
         [SerializeField] public EquipmentType EquipmentType => equipmentType;
 
@@ -47,6 +50,8 @@ namespace Characters.Player.CharacterItem
         public float AttackSpeed => attackSpeed;
         
         public byte BlockChance => blockChance;
+
+        public Rarity Rarity => rarity;
 
         /// <summary>
         /// Jewelery

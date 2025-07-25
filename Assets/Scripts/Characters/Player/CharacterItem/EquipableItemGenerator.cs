@@ -2,10 +2,9 @@
 using System.Linq;
 using Characters.Player.CharacterItem.SEquipmentBases;
 using ProjectEnums;
-using UI.GridEquipment;
+using UI.GridEquipmentNamespace;
 using UnityEngine;
 using Utilities;
-using Grid = UI.GridEquipment.Grid;
 using Random = UnityEngine.Random;
 using Vector2 = System.Numerics.Vector2;
 using Vector3 = System.Numerics.Vector3;
@@ -48,6 +47,7 @@ namespace Characters.Player.CharacterItem
             
             newItem.GetComponent<ItemInUI>().SetSize((byte)equipmentBase.Size.x, (byte)equipmentBase.Size.y);
             newItem.GetComponent<ItemInUI>().SetImage(equipmentBase.Icon);
+            newItem.GetComponent<EquipableItem>().equipmentBase = equipmentBase;
             
             if (equipmentBase is SArmourBase armourBase)
             {
@@ -113,7 +113,7 @@ namespace Characters.Player.CharacterItem
             
             equipable.GenerateGuid();
             newItem.GetComponent<ItemInUI>().UpdateSize();
-            FindAnyObjectByType<Grid>().GridBackend.PlaceItem(newItem.GetComponent<ItemInUI>()); //TODO Consider
+            FindAnyObjectByType<GridEquipment>().GridBackend.PlaceItem(newItem.GetComponent<ItemInUI>()); //TODO Consider
             
             
             //return newItem;

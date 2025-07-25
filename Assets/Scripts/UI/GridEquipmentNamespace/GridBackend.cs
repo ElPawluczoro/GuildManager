@@ -2,7 +2,7 @@
 using UnityEngine;
 using Utilities;
 
-namespace UI.GridEquipment
+namespace UI.GridEquipmentNamespace
 {
     public class GridBackend
     {

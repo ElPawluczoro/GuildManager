@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using Characters.Player;
 using Characters.Player.CharacterItem;
-using UI.GridEquipment;
+using UI.GridEquipmentNamespace;
 using UnityEngine;
 using UnityEngine.UI;
 

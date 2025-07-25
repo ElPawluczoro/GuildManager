@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace UI.GridEquipment
+namespace UI.GridEquipmentNamespace
 {
     public class GridSlot : MonoBehaviour
     {
