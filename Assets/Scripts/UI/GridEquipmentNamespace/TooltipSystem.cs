@@ -18,6 +18,7 @@ namespace UI.GridEquipmentNamespace
         public RectTransform tooltipRect;
         public Canvas tooltipCanvas;   
         public Camera uiCamera;
+        public ToolTipTrigger currentTrigger;
 
         private void Awake()
         {
@@ -25,12 +26,14 @@ namespace UI.GridEquipmentNamespace
             instance = this;
         }
 
-        public void ShowTooltip(string contentText, RectTransform target)
+        public void ShowTooltip(string contentText, RectTransform target, ToolTipTrigger currentTrigger)
         {
             tooltip.SetActive(true);
             textComponent.text = contentText;
             /*textComponent.ForceMeshUpdate();
             LayoutRebuilder.ForceRebuildLayoutImmediate(tooltip.transform as RectTransform);*/
+            
+            this.currentTrigger = currentTrigger;
             
             StartCoroutine(DelayedPositioning(target));
             
@@ -40,6 +43,7 @@ namespace UI.GridEquipmentNamespace
         public void HideTooltip()
         {
             textComponent.text = "";
+            currentTrigger = null;
             tooltip.SetActive(false);
         }
 
@@ -70,6 +74,11 @@ namespace UI.GridEquipmentNamespace
             LayoutRebuilder.ForceRebuildLayoutImmediate(tooltip.transform as RectTransform);
 
             ShowTooltipAt(target);
+        }
+
+        public bool IsTooltipActive()
+        {
+            return tooltipRect.gameObject.activeSelf;
         }
         
         
