@@ -21,6 +21,11 @@ namespace Characters.Player.CharacterItem
         {
             Affixes.INCREASED_ARMOUR_LOCAL, Affixes.INCREASED_DODGE_LOCAL, Affixes.INCREASED_MAGIC_RESISTANCE_LOCAL
         };
+
+        private Affixes[] flatDefensivesLocal = new[]
+        {
+            Affixes.ARMOUR, Affixes.DODGE, Affixes.MAGIC_RESISTANCE
+        };
         
         public static Rarity GetRandomRarity()
         {
@@ -131,6 +136,10 @@ namespace Characters.Player.CharacterItem
                 Affix suff = equipable.Suffixes.Count > 0 ? equipable.Suffixes[0] : null;
                 Affix a = AffixGenerator.GenerateAffix(AffixType.SUFFIX, equipable.EquipmentType, suff);
                 equipable.AddSuffix(a);
+                if (flatDefensivesLocal.Contains(a.Affix1))
+                {
+                    HandleFlatLocalDefensives(equipable, a);
+                }
                 if (defensivesLocal.Contains(a.Affix1))
                 {
                     HandleLocalDefensives(equipable, a);
@@ -141,21 +150,71 @@ namespace Characters.Player.CharacterItem
         
         public void HandleLocalDefensives(EquipableItem equipable, Affix affix)
         {
-            int armour = equipable.DefensiveStats.x;
-            int magicResistance =equipable.DefensiveStats.y;
-            int dodge = equipable.DefensiveStats.z;
+            equipable.SetTotalDefensive(ReturnHandledLocalDefensives(equipable, affix));
+        }
+
+        public Vector3Int ReturnHandledLocalDefensives(EquipableItem equipable, Affix affix)
+        {
+            int armour = equipable.TotalDefensiveStats.x;
+            int magicResistance =equipable.TotalDefensiveStats.y;
+            int dodge = equipable.TotalDefensiveStats.z;
             if (affix.Affix1 == Affixes.INCREASED_ARMOUR_LOCAL)
             {
-                armour = (int)Math.Floor(equipable.DefensiveStats.x * (1 + affix.Value * 0.01f));
+                armour = (int)Math.Floor(equipable.TotalDefensiveStats.x * (1 + affix.Value * 0.01f));
             }
             else if (affix.Affix1 == Affixes.INCREASED_MAGIC_RESISTANCE_LOCAL)
             {
-                magicResistance = (int)Math.Floor(equipable.DefensiveStats.y * (1 + affix.Value * 0.01f));
+                magicResistance = (int)Math.Floor(equipable.TotalDefensiveStats.y * (1 + affix.Value * 0.01f));
             }
             else if (affix.Affix1 == Affixes.INCREASED_DODGE_LOCAL)
             {
-                dodge = (int)Math.Floor(equipable.DefensiveStats.z * (1 + affix.Value * 0.01f));
+                dodge = (int)Math.Floor(equipable.TotalDefensiveStats.z * (1 + affix.Value * 0.01f));
             }
+            return new Vector3Int(armour, magicResistance, dodge);
+        }
+
+        public void HandleFlatLocalDefensives(EquipableItem equipable, Affix affix)
+        {
+            int armour = equipable.TotalDefensiveStats.x;
+            int magicResistance = equipable.TotalDefensiveStats.y;
+            int dodge = equipable.TotalDefensiveStats.z;
+            if (affix.Affix1 == Affixes.ARMOUR)
+            {
+                armour = equipable.DefensiveStats.x + (int)affix.Value;
+                foreach (Affix suffix in equipable.Suffixes)
+                {
+                    if (suffix.Affix1 == Affixes.INCREASED_ARMOUR_LOCAL)
+                    {
+                        var newDefVector = ReturnHandledLocalDefensives(equipable, suffix);
+                        armour = newDefVector.x;
+                    }
+                }
+            }
+            else if (affix.Affix1 == Affixes.MAGIC_RESISTANCE)
+            {
+                magicResistance = equipable.DefensiveStats.y + (int)affix.Value;
+                foreach (Affix suffix in equipable.Suffixes)
+                {
+                    if (suffix.Affix1 == Affixes.INCREASED_MAGIC_RESISTANCE_LOCAL)
+                    {
+                        var newDefVector = ReturnHandledLocalDefensives(equipable, suffix);
+                        magicResistance = newDefVector.y;
+                    }
+                }
+            }
+            else if (affix.Affix1 == Affixes.DODGE)
+            {
+                dodge = equipable.DefensiveStats.z + (int)affix.Value;
+                foreach (Affix suffix in equipable.Suffixes)
+                {
+                    if (suffix.Affix1 == Affixes.INCREASED_DODGE_LOCAL)
+                    {
+                        var newDefVector = ReturnHandledLocalDefensives(equipable, suffix);
+                        magicResistance = newDefVector.z;
+                    }
+                }
+            }
+            
             equipable.SetTotalDefensive(new Vector3Int(armour, magicResistance, dodge));
         }
         

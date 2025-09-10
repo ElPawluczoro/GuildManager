@@ -118,6 +118,8 @@ namespace Characters.Player
                 Affixes.ARMOUR, Affixes.MAGIC_RESISTANCE, Affixes.DODGE
             };
 
+            
+            
             if (equipable == slot)
             {
                 UnEquip(ref slot, slot);
@@ -137,7 +139,7 @@ namespace Characters.Player
                 }
                 else
                 {
-                 advancedStats.Modify((EAdvancedStat)affixToStat.stat, EOperation.ADD, prefix.Value);
+                    advancedStats.Modify((EAdvancedStat)affixToStat.stat, EOperation.ADD, prefix.Value);
                 }
             }
             foreach (Affix suffix in equipable.Suffixes)
@@ -246,9 +248,9 @@ namespace Characters.Player
         public void HandleDefensives(bool equip, EquipableItem equipable)
         {
             EOperation operation = equip ? EOperation.ADD : EOperation.SUBSTRACT;
-            basicStats.Modify(ECharacterBasicStat.ARMOUR, operation, (short)equipable.DefensiveStats.x);
-            basicStats.Modify(ECharacterBasicStat.MAGIC_RESISTANCE, operation, (short)equipable.DefensiveStats.y);
-            basicStats.Modify(ECharacterBasicStat.DODGE, operation, (short)equipable.DefensiveStats.z);
+            basicStats.Modify(ECharacterBasicStat.ARMOUR, operation, (short)equipable.TotalDefensiveStats.x);
+            basicStats.Modify(ECharacterBasicStat.MAGIC_RESISTANCE, operation, (short)equipable.TotalDefensiveStats.y);
+            basicStats.Modify(ECharacterBasicStat.DODGE, operation, (short)equipable.TotalDefensiveStats.z);
         }
 
         public void HandleAttackDamage(bool equip, EquipableItem equipable)

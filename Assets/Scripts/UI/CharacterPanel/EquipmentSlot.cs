@@ -19,6 +19,8 @@ namespace UI.CharacterPanel
 
         public CharacterEquipment CharacterEquipment => characterEquipment;
 
+        private EquipableItem lastChild;
+        
         private void OnEnable()
         {
             SetUpSlot();
@@ -46,9 +48,10 @@ namespace UI.CharacterPanel
 
         public bool PlaceItem(EquipableItem equipableItem)
         {
-            characterEquipment.foo(equipableItem);
+            if (equipableItem != lastChild) characterEquipment.foo(equipableItem);
             equipableItem.GetComponent<ItemInUI>().currentSlot = this;
             FitItemInSlot(equipableItem.GetComponent<RectTransform>());
+            lastChild = equipableItem;
             return true;
         }
 
@@ -62,6 +65,7 @@ namespace UI.CharacterPanel
         public void UnequipItem(EquipableItem equipableItem)
         {
             characterEquipment.foo(equipableItem);
+            lastChild = null;
         }
         
     }

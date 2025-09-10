@@ -40,7 +40,7 @@ namespace UI.GridEquipmentNamespace
 
             if (position.x + newItem.SizeX - 1 >= grid.GetLength(0) || position.y + newItem.SizeY - 1>= grid.GetLength(1))
             {
-                Debug.Log("Fragment of item off bounds");
+                //Debug.Log("Fragment of item off bounds");
                 return false;
             }
             
@@ -48,7 +48,7 @@ namespace UI.GridEquipmentNamespace
             {
                 for (int j = position.y; j < position.y + newItem.SizeY; j++)
                 {   
-                    Debug.Log("Space not free");
+                    //Debug.Log("Space not free");
                     if(grid[i, j] != Guid.Empty) return false;
                 }
             }
@@ -58,7 +58,7 @@ namespace UI.GridEquipmentNamespace
                 for (int j = position.y; j < position.y + newItem.SizeY; j++)
                 {   
                     grid[i, j] = newItem.Item.Guid;
-                    Debug.Log($"{i},{j}");
+                    //Debug.Log($"{i},{j}");
                 }
             }
 
@@ -71,7 +71,7 @@ namespace UI.GridEquipmentNamespace
                 onItemPlace.Invoke(newItem, position);
             }
             
-            Debug.Log("Completed");
+            //Debug.Log("Completed");
             return true;
         }
 
