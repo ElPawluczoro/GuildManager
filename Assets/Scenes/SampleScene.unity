@@ -204,7 +204,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &118280461
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -275,7 +275,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 621, y: 209}
-  m_SizeDelta: {x: 0, y: 0}
+  m_SizeDelta: {x: 151.54, y: 40.22}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &118280465
 MonoBehaviour:
@@ -1138,7 +1138,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 75.77, y: -20.11}
-  m_SizeDelta: {x: 151.54, y: 0}
+  m_SizeDelta: {x: 151.54, y: 40.22}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &966186203
 MonoBehaviour:
@@ -2957,6 +2957,7 @@ GameObject:
   - component: {fileID: 2040754029}
   - component: {fileID: 2040754032}
   - component: {fileID: 2040754033}
+  - component: {fileID: 2040754034}
   m_Layer: 0
   m_Name: GameController
   m_TagString: Untagged
@@ -3053,6 +3054,20 @@ MonoBehaviour:
   tooltipRect: {fileID: 118280464}
   tooltipCanvas: {fileID: 670200094}
   uiCamera: {fileID: 519420031}
+  currentTrigger: {fileID: 0}
+--- !u!114 &2040754034
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2040754028}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 68be4221a18246a7a0408e0b28b08937, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  altHeld: 0
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

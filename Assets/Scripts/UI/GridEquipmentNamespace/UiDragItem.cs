@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using Characters.Player.CharacterItem;
+using ProjectEnums;
 using UI.CharacterPanel;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -115,12 +116,12 @@ namespace UI.GridEquipmentNamespace
                     }
 
                     if (equipable.EquipmentType is EquipmentType.TWO_HANDED or EquipmentType.BOW 
-                        && equipmentSlot.transform.parent.GetComponent<CharacterEquipmentUI>().equipmentSlots[EquipmentSlotType.OFF_HAND].transform.childCount != 0)
+                        && equipmentSlot.transform.parent.GetComponent<CharacterEquipmentUI>().equipmentSlots[EEquipmentSlotType.OFF_HAND].transform.childCount != 0)
                     {
                         if (!itemInUI.currentGrid.PlaceItem
                             (equipmentSlot.transform.parent
                                 .GetComponent<CharacterEquipmentUI>()
-                                .equipmentSlots[EquipmentSlotType.OFF_HAND]
+                                .equipmentSlots[EEquipmentSlotType.OFF_HAND]
                                 .transform.GetChild(0).GetComponent<ItemInUI>()))
                         {
                             ReturnToLastGrid(itemInUI);
@@ -129,14 +130,14 @@ namespace UI.GridEquipmentNamespace
                     }
                     
                     if (equipable.EquipmentType is EquipmentType.OFF_HAND_SHIELD or EquipmentType.OFF_HAND_WEAPON 
-                        && equipmentSlot.transform.parent.GetComponent<CharacterEquipmentUI>().equipmentSlots[EquipmentSlotType.MAIN_HAND].transform.childCount != 0
-                        && equipmentSlot.transform.parent.GetComponent<CharacterEquipmentUI>().equipmentSlots[EquipmentSlotType.MAIN_HAND].transform.GetChild(0)
+                        && equipmentSlot.transform.parent.GetComponent<CharacterEquipmentUI>().equipmentSlots[EEquipmentSlotType.MAIN_HAND].transform.childCount != 0
+                        && equipmentSlot.transform.parent.GetComponent<CharacterEquipmentUI>().equipmentSlots[EEquipmentSlotType.MAIN_HAND].transform.GetChild(0)
                             .GetComponent<EquipableItem>().EquipmentType is EquipmentType.TWO_HANDED or EquipmentType.BOW)
                     {
                         if (!itemInUI.currentGrid.PlaceItem
                             (equipmentSlot.transform.parent
                                 .GetComponent<CharacterEquipmentUI>()
-                                .equipmentSlots[EquipmentSlotType.MAIN_HAND]
+                                .equipmentSlots[EEquipmentSlotType.MAIN_HAND]
                                 .transform.GetChild(0).GetComponent<ItemInUI>()))
                         {
                             ReturnToLastGrid(itemInUI);

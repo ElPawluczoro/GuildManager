@@ -65,6 +65,7 @@ namespace UI.GridEquipmentNamespace
                 );
             
             tooltipRect.anchoredPosition = localPoint + offset;
+            
         }
         
         private IEnumerator DelayedPositioning(RectTransform target)

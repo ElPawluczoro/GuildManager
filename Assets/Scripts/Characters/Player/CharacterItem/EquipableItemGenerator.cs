@@ -170,6 +170,15 @@ namespace Characters.Player.CharacterItem
             Debug.LogWarning($"Something went wrong, equipment bases T1 were returned. Provided {tier} base tier");
             return EquipmentBases.equipmentBasesDatabaseT1;
         }
+        
+        public EquipableItem GenerateSpecificItem(EquipableItem equipableItem)
+        {
+            var newItem = Instantiate(itemPrefab, itemParent);
+            
+            Destroy(newItem.GetComponent<EquipableItem>());
+            newItem.AddComponent<EquipableItem>();
+            return newItem.GetComponent<EquipableItem>();
+        }
     }
 }
 
