@@ -163,17 +163,21 @@ namespace Characters.Player.CharacterItem
 
         public static bool operator ==(EquipableItem a, EquipableItem b)
         {
-            /*if(a == null || b == null) {Debug.Log("false"); return false;}
-            Debug.Log((a.Guid == b.Guid));*/
-            
-            if(a is null || b is null) return false;
+            if (ReferenceEquals(a, null) && ReferenceEquals(b, null))
+                return true;
+
+            if (ReferenceEquals(a, null) || ReferenceEquals(b, null))
+                return false;
             return (a.Guid == b.Guid);
         }
 
         public static bool operator !=(EquipableItem a, EquipableItem b)
         {
-            if(a is null && b is not null || a is not null && b is null) return true;
-            return !(a.Guid == b.Guid);
+
+            if (ReferenceEquals(a, null) && ReferenceEquals(b, null)) return false;
+            if (ReferenceEquals(a, null) || ReferenceEquals(b, null)) return true;
+            
+            return a.Guid != b.Guid;
         }
     }
 }
