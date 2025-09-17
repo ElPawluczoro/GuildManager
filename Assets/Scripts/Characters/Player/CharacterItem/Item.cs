@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace Characters.Player.CharacterItem
 {
-    public abstract class Item : MonoBehaviour
+    public abstract class Item
     {
         [SerializeField] protected string itemName;
         [SerializeField] protected Int16 itemValue;

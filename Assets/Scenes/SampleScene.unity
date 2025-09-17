@@ -1206,15 +1206,141 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9465238e066198b448526be4b1f34a81, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  helmet: {fileID: 0}
-  bodyArmour: {fileID: 0}
-  boots: {fileID: 0}
-  gloves: {fileID: 0}
-  ring1: {fileID: 0}
-  ring2: {fileID: 0}
-  amulet: {fileID: 0}
-  mainHand: {fileID: 0}
-  offHand: {fileID: 0}
+  helmet:
+    itemName: 
+    itemValue: 0
+    equipmentType: 0
+    prefixes: []
+    suffixes: []
+    rarity: 0
+    levelRequirement: 0
+    statRequirements: {x: 0, y: 0, z: 0}
+    defensiveStats: {x: 0, y: 0, z: 0}
+    totalDefensiveStats: {x: 0, y: 0, z: 0}
+    attackDamage: {x: 0, y: 0}
+    attackSpeed: 0
+    blockChance: 0
+    equipmentBase: {fileID: 0}
+  bodyArmour:
+    itemName: 
+    itemValue: 0
+    equipmentType: 0
+    prefixes: []
+    suffixes: []
+    rarity: 0
+    levelRequirement: 0
+    statRequirements: {x: 0, y: 0, z: 0}
+    defensiveStats: {x: 0, y: 0, z: 0}
+    totalDefensiveStats: {x: 0, y: 0, z: 0}
+    attackDamage: {x: 0, y: 0}
+    attackSpeed: 0
+    blockChance: 0
+    equipmentBase: {fileID: 0}
+  boots:
+    itemName: 
+    itemValue: 0
+    equipmentType: 0
+    prefixes: []
+    suffixes: []
+    rarity: 0
+    levelRequirement: 0
+    statRequirements: {x: 0, y: 0, z: 0}
+    defensiveStats: {x: 0, y: 0, z: 0}
+    totalDefensiveStats: {x: 0, y: 0, z: 0}
+    attackDamage: {x: 0, y: 0}
+    attackSpeed: 0
+    blockChance: 0
+    equipmentBase: {fileID: 0}
+  gloves:
+    itemName: 
+    itemValue: 0
+    equipmentType: 0
+    prefixes: []
+    suffixes: []
+    rarity: 0
+    levelRequirement: 0
+    statRequirements: {x: 0, y: 0, z: 0}
+    defensiveStats: {x: 0, y: 0, z: 0}
+    totalDefensiveStats: {x: 0, y: 0, z: 0}
+    attackDamage: {x: 0, y: 0}
+    attackSpeed: 0
+    blockChance: 0
+    equipmentBase: {fileID: 0}
+  ring1:
+    itemName: 
+    itemValue: 0
+    equipmentType: 0
+    prefixes: []
+    suffixes: []
+    rarity: 0
+    levelRequirement: 0
+    statRequirements: {x: 0, y: 0, z: 0}
+    defensiveStats: {x: 0, y: 0, z: 0}
+    totalDefensiveStats: {x: 0, y: 0, z: 0}
+    attackDamage: {x: 0, y: 0}
+    attackSpeed: 0
+    blockChance: 0
+    equipmentBase: {fileID: 0}
+  ring2:
+    itemName: 
+    itemValue: 0
+    equipmentType: 0
+    prefixes: []
+    suffixes: []
+    rarity: 0
+    levelRequirement: 0
+    statRequirements: {x: 0, y: 0, z: 0}
+    defensiveStats: {x: 0, y: 0, z: 0}
+    totalDefensiveStats: {x: 0, y: 0, z: 0}
+    attackDamage: {x: 0, y: 0}
+    attackSpeed: 0
+    blockChance: 0
+    equipmentBase: {fileID: 0}
+  amulet:
+    itemName: 
+    itemValue: 0
+    equipmentType: 0
+    prefixes: []
+    suffixes: []
+    rarity: 0
+    levelRequirement: 0
+    statRequirements: {x: 0, y: 0, z: 0}
+    defensiveStats: {x: 0, y: 0, z: 0}
+    totalDefensiveStats: {x: 0, y: 0, z: 0}
+    attackDamage: {x: 0, y: 0}
+    attackSpeed: 0
+    blockChance: 0
+    equipmentBase: {fileID: 0}
+  mainHand:
+    itemName: 
+    itemValue: 0
+    equipmentType: 0
+    prefixes: []
+    suffixes: []
+    rarity: 0
+    levelRequirement: 0
+    statRequirements: {x: 0, y: 0, z: 0}
+    defensiveStats: {x: 0, y: 0, z: 0}
+    totalDefensiveStats: {x: 0, y: 0, z: 0}
+    attackDamage: {x: 0, y: 0}
+    attackSpeed: 0
+    blockChance: 0
+    equipmentBase: {fileID: 0}
+  offHand:
+    itemName: 
+    itemValue: 0
+    equipmentType: 0
+    prefixes: []
+    suffixes: []
+    rarity: 0
+    levelRequirement: 0
+    statRequirements: {x: 0, y: 0, z: 0}
+    defensiveStats: {x: 0, y: 0, z: 0}
+    totalDefensiveStats: {x: 0, y: 0, z: 0}
+    attackDamage: {x: 0, y: 0}
+    attackSpeed: 0
+    blockChance: 0
+    equipmentBase: {fileID: 0}
 --- !u!114 &911746714
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1946,15 +2072,141 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9465238e066198b448526be4b1f34a81, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  helmet: {fileID: 0}
-  bodyArmour: {fileID: 0}
-  boots: {fileID: 0}
-  gloves: {fileID: 0}
-  ring1: {fileID: 0}
-  ring2: {fileID: 0}
-  amulet: {fileID: 0}
-  mainHand: {fileID: 0}
-  offHand: {fileID: 0}
+  helmet:
+    itemName: 
+    itemValue: 0
+    equipmentType: 0
+    prefixes: []
+    suffixes: []
+    rarity: 0
+    levelRequirement: 0
+    statRequirements: {x: 0, y: 0, z: 0}
+    defensiveStats: {x: 0, y: 0, z: 0}
+    totalDefensiveStats: {x: 0, y: 0, z: 0}
+    attackDamage: {x: 0, y: 0}
+    attackSpeed: 0
+    blockChance: 0
+    equipmentBase: {fileID: 0}
+  bodyArmour:
+    itemName: 
+    itemValue: 0
+    equipmentType: 0
+    prefixes: []
+    suffixes: []
+    rarity: 0
+    levelRequirement: 0
+    statRequirements: {x: 0, y: 0, z: 0}
+    defensiveStats: {x: 0, y: 0, z: 0}
+    totalDefensiveStats: {x: 0, y: 0, z: 0}
+    attackDamage: {x: 0, y: 0}
+    attackSpeed: 0
+    blockChance: 0
+    equipmentBase: {fileID: 0}
+  boots:
+    itemName: 
+    itemValue: 0
+    equipmentType: 0
+    prefixes: []
+    suffixes: []
+    rarity: 0
+    levelRequirement: 0
+    statRequirements: {x: 0, y: 0, z: 0}
+    defensiveStats: {x: 0, y: 0, z: 0}
+    totalDefensiveStats: {x: 0, y: 0, z: 0}
+    attackDamage: {x: 0, y: 0}
+    attackSpeed: 0
+    blockChance: 0
+    equipmentBase: {fileID: 0}
+  gloves:
+    itemName: 
+    itemValue: 0
+    equipmentType: 0
+    prefixes: []
+    suffixes: []
+    rarity: 0
+    levelRequirement: 0
+    statRequirements: {x: 0, y: 0, z: 0}
+    defensiveStats: {x: 0, y: 0, z: 0}
+    totalDefensiveStats: {x: 0, y: 0, z: 0}
+    attackDamage: {x: 0, y: 0}
+    attackSpeed: 0
+    blockChance: 0
+    equipmentBase: {fileID: 0}
+  ring1:
+    itemName: 
+    itemValue: 0
+    equipmentType: 0
+    prefixes: []
+    suffixes: []
+    rarity: 0
+    levelRequirement: 0
+    statRequirements: {x: 0, y: 0, z: 0}
+    defensiveStats: {x: 0, y: 0, z: 0}
+    totalDefensiveStats: {x: 0, y: 0, z: 0}
+    attackDamage: {x: 0, y: 0}
+    attackSpeed: 0
+    blockChance: 0
+    equipmentBase: {fileID: 0}
+  ring2:
+    itemName: 
+    itemValue: 0
+    equipmentType: 0
+    prefixes: []
+    suffixes: []
+    rarity: 0
+    levelRequirement: 0
+    statRequirements: {x: 0, y: 0, z: 0}
+    defensiveStats: {x: 0, y: 0, z: 0}
+    totalDefensiveStats: {x: 0, y: 0, z: 0}
+    attackDamage: {x: 0, y: 0}
+    attackSpeed: 0
+    blockChance: 0
+    equipmentBase: {fileID: 0}
+  amulet:
+    itemName: 
+    itemValue: 0
+    equipmentType: 0
+    prefixes: []
+    suffixes: []
+    rarity: 0
+    levelRequirement: 0
+    statRequirements: {x: 0, y: 0, z: 0}
+    defensiveStats: {x: 0, y: 0, z: 0}
+    totalDefensiveStats: {x: 0, y: 0, z: 0}
+    attackDamage: {x: 0, y: 0}
+    attackSpeed: 0
+    blockChance: 0
+    equipmentBase: {fileID: 0}
+  mainHand:
+    itemName: 
+    itemValue: 0
+    equipmentType: 0
+    prefixes: []
+    suffixes: []
+    rarity: 0
+    levelRequirement: 0
+    statRequirements: {x: 0, y: 0, z: 0}
+    defensiveStats: {x: 0, y: 0, z: 0}
+    totalDefensiveStats: {x: 0, y: 0, z: 0}
+    attackDamage: {x: 0, y: 0}
+    attackSpeed: 0
+    blockChance: 0
+    equipmentBase: {fileID: 0}
+  offHand:
+    itemName: 
+    itemValue: 0
+    equipmentType: 0
+    prefixes: []
+    suffixes: []
+    rarity: 0
+    levelRequirement: 0
+    statRequirements: {x: 0, y: 0, z: 0}
+    defensiveStats: {x: 0, y: 0, z: 0}
+    totalDefensiveStats: {x: 0, y: 0, z: 0}
+    attackDamage: {x: 0, y: 0}
+    attackSpeed: 0
+    blockChance: 0
+    equipmentBase: {fileID: 0}
 --- !u!114 &1013762023
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3192,15 +3444,141 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9465238e066198b448526be4b1f34a81, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  helmet: {fileID: 0}
-  bodyArmour: {fileID: 0}
-  boots: {fileID: 0}
-  gloves: {fileID: 0}
-  ring1: {fileID: 0}
-  ring2: {fileID: 0}
-  amulet: {fileID: 0}
-  mainHand: {fileID: 0}
-  offHand: {fileID: 0}
+  helmet:
+    itemName: 
+    itemValue: 0
+    equipmentType: 0
+    prefixes: []
+    suffixes: []
+    rarity: 0
+    levelRequirement: 0
+    statRequirements: {x: 0, y: 0, z: 0}
+    defensiveStats: {x: 0, y: 0, z: 0}
+    totalDefensiveStats: {x: 0, y: 0, z: 0}
+    attackDamage: {x: 0, y: 0}
+    attackSpeed: 0
+    blockChance: 0
+    equipmentBase: {fileID: 0}
+  bodyArmour:
+    itemName: 
+    itemValue: 0
+    equipmentType: 0
+    prefixes: []
+    suffixes: []
+    rarity: 0
+    levelRequirement: 0
+    statRequirements: {x: 0, y: 0, z: 0}
+    defensiveStats: {x: 0, y: 0, z: 0}
+    totalDefensiveStats: {x: 0, y: 0, z: 0}
+    attackDamage: {x: 0, y: 0}
+    attackSpeed: 0
+    blockChance: 0
+    equipmentBase: {fileID: 0}
+  boots:
+    itemName: 
+    itemValue: 0
+    equipmentType: 0
+    prefixes: []
+    suffixes: []
+    rarity: 0
+    levelRequirement: 0
+    statRequirements: {x: 0, y: 0, z: 0}
+    defensiveStats: {x: 0, y: 0, z: 0}
+    totalDefensiveStats: {x: 0, y: 0, z: 0}
+    attackDamage: {x: 0, y: 0}
+    attackSpeed: 0
+    blockChance: 0
+    equipmentBase: {fileID: 0}
+  gloves:
+    itemName: 
+    itemValue: 0
+    equipmentType: 0
+    prefixes: []
+    suffixes: []
+    rarity: 0
+    levelRequirement: 0
+    statRequirements: {x: 0, y: 0, z: 0}
+    defensiveStats: {x: 0, y: 0, z: 0}
+    totalDefensiveStats: {x: 0, y: 0, z: 0}
+    attackDamage: {x: 0, y: 0}
+    attackSpeed: 0
+    blockChance: 0
+    equipmentBase: {fileID: 0}
+  ring1:
+    itemName: 
+    itemValue: 0
+    equipmentType: 0
+    prefixes: []
+    suffixes: []
+    rarity: 0
+    levelRequirement: 0
+    statRequirements: {x: 0, y: 0, z: 0}
+    defensiveStats: {x: 0, y: 0, z: 0}
+    totalDefensiveStats: {x: 0, y: 0, z: 0}
+    attackDamage: {x: 0, y: 0}
+    attackSpeed: 0
+    blockChance: 0
+    equipmentBase: {fileID: 0}
+  ring2:
+    itemName: 
+    itemValue: 0
+    equipmentType: 0
+    prefixes: []
+    suffixes: []
+    rarity: 0
+    levelRequirement: 0
+    statRequirements: {x: 0, y: 0, z: 0}
+    defensiveStats: {x: 0, y: 0, z: 0}
+    totalDefensiveStats: {x: 0, y: 0, z: 0}
+    attackDamage: {x: 0, y: 0}
+    attackSpeed: 0
+    blockChance: 0
+    equipmentBase: {fileID: 0}
+  amulet:
+    itemName: 
+    itemValue: 0
+    equipmentType: 0
+    prefixes: []
+    suffixes: []
+    rarity: 0
+    levelRequirement: 0
+    statRequirements: {x: 0, y: 0, z: 0}
+    defensiveStats: {x: 0, y: 0, z: 0}
+    totalDefensiveStats: {x: 0, y: 0, z: 0}
+    attackDamage: {x: 0, y: 0}
+    attackSpeed: 0
+    blockChance: 0
+    equipmentBase: {fileID: 0}
+  mainHand:
+    itemName: 
+    itemValue: 0
+    equipmentType: 0
+    prefixes: []
+    suffixes: []
+    rarity: 0
+    levelRequirement: 0
+    statRequirements: {x: 0, y: 0, z: 0}
+    defensiveStats: {x: 0, y: 0, z: 0}
+    totalDefensiveStats: {x: 0, y: 0, z: 0}
+    attackDamage: {x: 0, y: 0}
+    attackSpeed: 0
+    blockChance: 0
+    equipmentBase: {fileID: 0}
+  offHand:
+    itemName: 
+    itemValue: 0
+    equipmentType: 0
+    prefixes: []
+    suffixes: []
+    rarity: 0
+    levelRequirement: 0
+    statRequirements: {x: 0, y: 0, z: 0}
+    defensiveStats: {x: 0, y: 0, z: 0}
+    totalDefensiveStats: {x: 0, y: 0, z: 0}
+    attackDamage: {x: 0, y: 0}
+    attackSpeed: 0
+    blockChance: 0
+    equipmentBase: {fileID: 0}
 --- !u!114 &1554545166
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4168,7 +4546,7 @@ MonoBehaviour:
       - m_Target: {fileID: 2040754029}
         m_TargetAssemblyTypeName: Characters.Player.CharacterItem.EquipableItemGenerator,
           Assembly-CSharp
-        m_MethodName: GenerateItem
+        m_MethodName: InstantiateNewItem
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

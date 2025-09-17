@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using Characters.Player.CharacterItem;
+using Characters.Player.CharacterItem.SEquipmentBases;
 using ProjectEnums;
 using UI.CharacterPanel;
 using UnityEngine;
@@ -93,7 +94,7 @@ namespace UI.GridEquipmentNamespace
                     {
                         if (itemInUI.currentSlot)
                         {
-                            itemInUI.currentSlot.UnequipItem(GetComponent<EquipableItem>());
+                            itemInUI.currentSlot.UnequipItem(GetComponent<EquipableHolder>().EquipableItem);
                             itemInUI.currentSlot = null;
                         }
                     }
@@ -107,15 +108,15 @@ namespace UI.GridEquipmentNamespace
                 }
                 
                 var equipmentSlot = result.gameObject.GetComponent<EquipmentSlot>();
-                if (equipmentSlot && GetComponent<EquipableItem>() is EquipableItem equipable)
+                if (equipmentSlot && GetComponent<EquipableHolder>() is EquipableHolder equipableHolder)
                 {
-                    if (!equipmentSlot.IsAvailable(equipable))
+                    if (!equipmentSlot.IsAvailable(equipableHolder.EquipableItem))
                     {
                         ReturnToLastGrid(itemInUI);
                         return;
                     }
 
-                    if (equipable.EquipmentType is EquipmentType.TWO_HANDED or EquipmentType.BOW 
+                    if (equipableHolder.EquipableItem.EquipmentType is EquipmentType.TWO_HANDED or EquipmentType.BOW 
                         && equipmentSlot.transform.parent.GetComponent<CharacterEquipmentUI>().equipmentSlots[EEquipmentSlotType.OFF_HAND].transform.childCount != 0)
                     {
                         if (!itemInUI.currentGrid.PlaceItem
@@ -129,10 +130,10 @@ namespace UI.GridEquipmentNamespace
                         }
                     }
                     
-                    if (equipable.EquipmentType is EquipmentType.OFF_HAND_SHIELD or EquipmentType.OFF_HAND_WEAPON 
+                    if (equipableHolder.EquipableItem.EquipmentType is EquipmentType.OFF_HAND_SHIELD or EquipmentType.OFF_HAND_WEAPON 
                         && equipmentSlot.transform.parent.GetComponent<CharacterEquipmentUI>().equipmentSlots[EEquipmentSlotType.MAIN_HAND].transform.childCount != 0
                         && equipmentSlot.transform.parent.GetComponent<CharacterEquipmentUI>().equipmentSlots[EEquipmentSlotType.MAIN_HAND].transform.GetChild(0)
-                            .GetComponent<EquipableItem>().EquipmentType is EquipmentType.TWO_HANDED or EquipmentType.BOW)
+                            .GetComponent<EquipableHolder>().EquipableItem.EquipmentType is EquipmentType.TWO_HANDED or EquipmentType.BOW)
                     {
                         if (!itemInUI.currentGrid.PlaceItem
                             (equipmentSlot.transform.parent
@@ -147,12 +148,12 @@ namespace UI.GridEquipmentNamespace
                     
                     if (equipmentSlot.transform.childCount == 0)
                     {
-                        equipmentSlot.TryPlaceItem(equipable);
+                        equipmentSlot.TryPlaceItem(equipableHolder);
                         return;
                     }
                     if (itemInUI.currentGrid.PlaceItem(equipmentSlot.transform.GetChild(0).GetComponent<ItemInUI>()))
                     {
-                        equipmentSlot.PlaceItem(equipable);
+                        equipmentSlot.PlaceItem(equipableHolder);
                         return;   
                     }
                     ReturnToLastGrid(itemInUI);

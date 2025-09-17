@@ -43,16 +43,18 @@ namespace Characters.Player.CharacterItem
             return (byte)Random.Range(3, 5);
         }
         
-        public void GenerateItem(int tier) //Should return gameobject?
+        public EquipableItem GenerateItem(int tier) //Should return gameobject?
         {
             SEquipmentBase equipmentBase = GetBasesTable(tier)[Random.Range(0, GetBasesTable(tier).Length)];
-            GameObject newItem = Instantiate(itemPrefab, itemParent);
-            EquipableItem equipable = newItem.GetComponent<EquipableItem>();
+            EquipableItem equipable = new EquipableItem();
+            //GameObject newItem = Instantiate(itemPrefab, itemParent);
+            //EquipableItem equipable = newItem.GetComponent<EquipableItem>();
             Rarity rarity = GetRandomRarity();
             
-            newItem.GetComponent<ItemInUI>().SetSize((byte)equipmentBase.Size.x, (byte)equipmentBase.Size.y);
+            /*newItem.GetComponent<ItemInUI>().SetSize((byte)equipmentBase.Size.x, (byte)equipmentBase.Size.y);
             newItem.GetComponent<ItemInUI>().SetImage(equipmentBase.Icon);
-            newItem.GetComponent<EquipableItem>().equipmentBase = equipmentBase;
+            newItem.GetComponent<EquipableItem>().equipmentBase = equipmentBase;*/
+            equipable.equipmentBase = equipmentBase;
             
             if (equipmentBase is SArmourBase armourBase)
             {
@@ -117,11 +119,32 @@ namespace Characters.Player.CharacterItem
             }
             
             equipable.GenerateGuid();
+            //newItem.GetComponent<ItemInUI>().UpdateSize();
+            //FindAnyObjectByType<GridEquipment>().GridBackend.PlaceItem(newItem.GetComponent<ItemInUI>()); //TODO Consider
+            
+            
+            return equipable;
+        }
+
+        public void InstantiateNewItem(int tier)
+        {
+            var equipable = GenerateItem(tier);
+            
+            GameObject newItem = Instantiate(itemPrefab, itemParent);
+            EquipableHolder equipableComponent = newItem.GetComponent<EquipableHolder>();
+            equipableComponent.SetEquipableItem(equipable);
+            SEquipmentBase equipmentBase = equipable.equipmentBase;
+            
+            Debug.Log(equipable);
+            Debug.Log(equipable.equipmentBase);
+            Debug.Log(newItem.GetComponent<ItemInUI>());
+            
+            newItem.GetComponent<ItemInUI>().SetSize((byte)equipmentBase.Size.x, (byte)equipmentBase.Size.y);
+            newItem.GetComponent<ItemInUI>().SetImage(equipmentBase.Icon);
+            //newItem.GetComponent<EquipableItem>().equipmentBase = equipmentBase;
+            
             newItem.GetComponent<ItemInUI>().UpdateSize();
             FindAnyObjectByType<GridEquipment>().GridBackend.PlaceItem(newItem.GetComponent<ItemInUI>()); //TODO Consider
-            
-            
-            //return newItem;
         }
 
         public void AddAffix(EquipableItem equipable, AffixType affixType)
@@ -230,14 +253,14 @@ namespace Characters.Player.CharacterItem
             return EquipmentBases.equipmentBasesDatabaseT1;
         }
         
-        public EquipableItem GenerateSpecificItem(EquipableItem equipableItem)
+        /*public EquipableItem GenerateSpecificItem(EquipableItem equipableItem)
         {
             var newItem = Instantiate(itemPrefab, itemParent);
             
             Destroy(newItem.GetComponent<EquipableItem>());
             newItem.AddComponent<EquipableItem>();
             return newItem.GetComponent<EquipableItem>();
-        }
+        }*/
     }
 }
 

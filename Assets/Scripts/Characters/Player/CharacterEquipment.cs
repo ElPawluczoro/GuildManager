@@ -73,8 +73,8 @@ namespace Characters.Player
                     if(ring1 == equipable) { UnEquip(ref ring1, equipable); break; }
                     else if(ring2 == equipable) { UnEquip(ref ring2, equipable); break; }
                     
-                    if(ring1 && !ring2) Equip(ref ring2, equipable);
-                    else if(!ring1 && ring2) Equip(ref ring1, equipable);
+                    if(ring1 != null && ring2 == null) Equip(ref ring2, equipable);
+                    else if(ring1 == null && ring2 != null) Equip(ref ring1, equipable);
                     else Equip(ref ring1, equipable);
                     break;
                 case EquipmentType.AMULET:
@@ -82,7 +82,7 @@ namespace Characters.Player
                     break;
                 case EquipmentType.TWO_HANDED:
                 case EquipmentType.BOW:
-                    if(offHand) UnEquip(ref offHand,offHand);
+                    if(offHand != null) UnEquip(ref offHand,offHand);
                     Equip(ref mainHand, equipable);
                     break;
                 case EquipmentType.MAIN_HAND_WEAPON:
@@ -92,7 +92,7 @@ namespace Characters.Player
                 case EquipmentType.OFF_HAND_WEAPON:
                 case EquipmentType.OFF_HAND_SHIELD:
                 //case EquipmentType.OFF_HAND_MAGIC_ITEM:
-                if (mainHand&& mainHand.EquipmentType is EquipmentType.TWO_HANDED or EquipmentType.BOW)
+                if (mainHand != null && mainHand.EquipmentType is EquipmentType.TWO_HANDED or EquipmentType.BOW)
                 {
                     UnEquip(ref mainHand, mainHand);
                 }
@@ -185,7 +185,7 @@ namespace Characters.Player
                 Affixes.ARMOUR, Affixes.MAGIC_RESISTANCE, Affixes.DODGE
             };
             
-            if (!slot) return false; 
+            if (slot == null) return false; 
             foreach (Affix prefix in equipable.Prefixes)
             {
                 var affixToStat = Utils.AffixToStatMap[prefix.Affix1];

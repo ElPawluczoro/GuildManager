@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using Characters.Player;
 using Characters.Player.CharacterItem;
+using Characters.Player.CharacterItem.SEquipmentBases;
 using UI.GridEquipmentNamespace;
 using UnityEngine;
 using UnityEngine.UI;
@@ -39,19 +40,19 @@ namespace UI.CharacterPanel
             itemRect.anchoredPosition += new Vector2(cellSize * sizeX / 2f, -cellSize * sizeY / 2f);
         }
 
-        public bool TryPlaceItem(EquipableItem equipableItem)
+        public bool TryPlaceItem(EquipableHolder equipableHolder)
         {
-            if (!IsAvailable(equipableItem)) return false;
+            if (!IsAvailable(equipableHolder.EquipableItem)) return false;
 
-            return PlaceItem(equipableItem);
+            return PlaceItem(equipableHolder);
         }
 
-        public bool PlaceItem(EquipableItem equipableItem)
+        public bool PlaceItem(EquipableHolder equipableHolder)
         {
-            if (equipableItem != lastChild) characterEquipment.foo(equipableItem);
-            equipableItem.GetComponent<ItemInUI>().currentSlot = this;
-            FitItemInSlot(equipableItem.GetComponent<RectTransform>());
-            lastChild = equipableItem;
+            if (equipableHolder.EquipableItem != lastChild) characterEquipment.foo(equipableHolder.EquipableItem);
+            equipableHolder.GetComponent<ItemInUI>().currentSlot = this;
+            FitItemInSlot(equipableHolder.GetComponent<RectTransform>());
+            lastChild = equipableHolder.EquipableItem;
             return true;
         }
 

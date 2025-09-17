@@ -1,5 +1,6 @@
 ﻿using System;
 using Characters.Player.CharacterItem;
+using Characters.Player.CharacterItem.SEquipmentBases;
 using UI.CharacterPanel;
 using UnityEngine;
 using UnityEngine.UI;
@@ -32,7 +33,7 @@ namespace UI.GridEquipmentNamespace
         {
             var rectTransform = gameObject.GetComponent<RectTransform>();
             rectTransform.sizeDelta = new Vector2(sizeX * cellSize, sizeY * cellSize);
-            item = GetComponent<Item>();
+            item = GetComponent<EquipableHolder>().EquipableItem;
             GetComponent<UiDragItem>().SetTopLeftPoint(rectTransform.sizeDelta);
         }
 

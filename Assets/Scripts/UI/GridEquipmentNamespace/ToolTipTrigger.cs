@@ -22,7 +22,7 @@ namespace UI.GridEquipmentNamespace
             string contentText;
 
             string rarityColor = "<color=#353536>";;
-            EquipableItem equipableItem = GetComponent<EquipableItem>();
+            EquipableItem equipableItem = GetComponent<EquipableHolder>().EquipableItem;
             SEquipmentBase equipmentBase = equipableItem.equipmentBase;
             
             if (equipableItem.Rarity == Rarity.COMMON) rarityColor = "<color=#353536>"; // gray

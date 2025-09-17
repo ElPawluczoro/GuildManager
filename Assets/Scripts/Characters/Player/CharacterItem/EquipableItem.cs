@@ -12,8 +12,8 @@ namespace Characters.Player.CharacterItem
     {
         [SerializeField] private EquipmentType equipmentType;
         
-        [SerializeField] private List<Affix> prefixes;
-        [SerializeField] private List<Affix> suffixes;
+        [SerializeField] private List<Affix> prefixes = new();
+        [SerializeField] private List<Affix> suffixes = new();
 
         [SerializeField] private Rarity rarity;
         [SerializeField] private byte levelRequirement;
@@ -53,6 +53,11 @@ namespace Characters.Player.CharacterItem
 
         public Rarity Rarity => rarity;
 
+        public EquipableItem()
+        {
+            guid = Guid.NewGuid();
+        }
+        
         /// <summary>
         /// Jewelery
         /// </summary>
@@ -151,23 +156,23 @@ namespace Characters.Player.CharacterItem
             Debug.Log(guid);
         }
 
-        public void TestEquip()
+        /*public void TestEquip()
         {
             FindAnyObjectByType<CharacterEquipment>().foo(this);
-        }
+        }*/
 
         public static bool operator ==(EquipableItem a, EquipableItem b)
         {
-            if(!a || !b) {Debug.Log("false"); return false;}
-            Debug.Log((a.Guid == b.Guid));
+            /*if(a == null || b == null) {Debug.Log("false"); return false;}
+            Debug.Log((a.Guid == b.Guid));*/
             
-            if(!a || !b) return false;
+            if(a is null || b is null) return false;
             return (a.Guid == b.Guid);
         }
 
         public static bool operator !=(EquipableItem a, EquipableItem b)
         {
-            if(!a && b || a && !b) return true;
+            if(a is null && b is not null || a is not null && b is null) return true;
             return !(a.Guid == b.Guid);
         }
     }
