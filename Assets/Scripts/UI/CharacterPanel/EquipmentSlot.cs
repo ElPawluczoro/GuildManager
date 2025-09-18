@@ -18,7 +18,7 @@ namespace UI.CharacterPanel
         [SerializeField] List<EquipmentType> availableItemTypes = new List<EquipmentType>();
         [SerializeField] private CharacterEquipment characterEquipment;
 
-        public CharacterEquipment CharacterEquipment => characterEquipment;
+        public CharacterEquipment CharacterEquipment {get => characterEquipment; set => characterEquipment = value; }
 
         private EquipableItem lastChild;
         
@@ -38,6 +38,7 @@ namespace UI.CharacterPanel
             itemRect.SetParent(transform);
             itemRect.anchoredPosition = new Vector2(0, 0);
             itemRect.anchoredPosition += new Vector2(cellSize * sizeX / 2f, -cellSize * sizeY / 2f);
+            itemRect.GetComponent<ItemInUI>().currentSlot = this;
         }
 
         public bool TryPlaceItem(EquipableHolder equipableHolder)
@@ -50,7 +51,7 @@ namespace UI.CharacterPanel
         public bool PlaceItem(EquipableHolder equipableHolder)
         {
             if (equipableHolder.EquipableItem != lastChild) characterEquipment.foo(equipableHolder.EquipableItem);
-            equipableHolder.GetComponent<ItemInUI>().currentSlot = this;
+            //equipableHolder.GetComponent<ItemInUI>().currentSlot = this;
             FitItemInSlot(equipableHolder.GetComponent<RectTransform>());
             lastChild = equipableHolder.EquipableItem;
             return true;

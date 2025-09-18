@@ -15,7 +15,7 @@ MonoBehaviour:
   baseName: ad one hand weapon
   statRequirements: {x: 4, y: 2, z: 0}
   levelRequirement: 0
-  equipmentType: 10
+  equipmentType: 8
   icon: {fileID: 1298246307389038859, guid: 71f66851d462e6a488453371aeae23ff, type: 3}
   size: {x: 2, y: 3}
   minDamage: {x: 1, y: 2}

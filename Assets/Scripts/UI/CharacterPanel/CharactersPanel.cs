@@ -48,18 +48,34 @@ namespace UI.CharacterPanel
             currentCharacter = (byte)i;
             LoadCharacter(characters[currentCharacter]);
         }
-
+        
         public void ResetEquipmentSlots()
         {
-            characterEquipmentSlots[currentCharacter].SetActive(false);
+            foreach (KeyValuePair<EEquipmentSlotType, GameObject> eqSlot in eqSlots)
+            {
+                if(eqSlot.Value.transform.childCount == 0) continue;
+                Destroy(eqSlot.Value.transform.GetChild(0).gameObject);
+            }
         }
         
         public void LoadCharacter(GameObject character)
         {
-            characterEquipmentSlots[currentCharacter].SetActive(true);
+            EquipableItemGenerator generator = FindAnyObjectByType<EquipableItemGenerator>();
+            CharacterEquipment characterEquipment = character.GetComponent<CharacterEquipment>();
+            
+            foreach (KeyValuePair<EEquipmentSlotType, GameObject> eqSlot in eqSlots)
+            {
+                eqSlot.Value.GetComponent<EquipmentSlot>().CharacterEquipment = characterEquipment;
+                
+                Debug.Log(characterEquipment.Get(eqSlot.Key).equipmentBase);
+                if(characterEquipment.Get(eqSlot.Key).equipmentBase is null) continue;
+                var newItem = generator.InstantiateSpecificEquipable(characterEquipment.Get(eqSlot.Key));
+                eqSlot.Value.GetComponent<EquipmentSlot>().FitItemInSlot(newItem.GetComponent<RectTransform>());
+            }
         }
     }
 }
+
 
 
 

@@ -54,7 +54,8 @@ namespace UI.GridEquipmentNamespace
             );
             
             pointerOfSet = rectTransform.anchoredPosition - pointerOfSet;
-            
+
+            var curGrid = GetComponent<ItemInUI>().currentGrid;
             GetComponent<ItemInUI>().currentGrid.RemoveItem(GetComponent<ItemInUI>());
         }
 

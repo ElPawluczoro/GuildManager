@@ -26,6 +26,8 @@ namespace Characters.Player
         private CharacterAdvancedStats advancedStats;
         private CharacterHealth characterHealth;
 
+        private Dictionary<EEquipmentSlotType, (Func<EquipableItem> get, Action<EquipableItem> set)> slotAccess;
+        
         public EquipableItem Helmet => helmet;
 
         public EquipableItem BodyArmour => bodyArmour;
@@ -43,6 +45,25 @@ namespace Characters.Player
         public EquipableItem MainHand => mainHand;
 
         public EquipableItem OffHand => offHand;
+        
+        private void Awake()
+        {
+            slotAccess = new()
+            {
+                { EEquipmentSlotType.HELMET,      (() => helmet,      v => helmet = v) },
+                { EEquipmentSlotType.BODY_ARMOUR, (() => bodyArmour,  v => bodyArmour = v) },
+                { EEquipmentSlotType.MAIN_HAND,   (() => mainHand,    v => mainHand = v) },
+                { EEquipmentSlotType.OFF_HAND,    (() => offHand,     v => offHand = v) },
+                { EEquipmentSlotType.GLOVES,      (() => gloves,      v => gloves = v) },
+                { EEquipmentSlotType.BOOTS,       (() => boots,       v => boots = v) },
+                { EEquipmentSlotType.RING1,       (() => ring1,       v => ring1 = v) },
+                { EEquipmentSlotType.RING2,       (() => ring2,       v => ring2 = v) },
+                { EEquipmentSlotType.AMULET,      (() => amulet,      v => amulet = v) },
+            };
+        }
+        
+        public EquipableItem Get(EEquipmentSlotType type) => slotAccess[type].get();
+        public void Set(EEquipmentSlotType type, EquipableItem item) => slotAccess[type].set(item);
 
         private void Start()
         {

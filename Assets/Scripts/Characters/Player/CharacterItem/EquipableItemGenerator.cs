@@ -129,22 +129,26 @@ namespace Characters.Player.CharacterItem
         public void InstantiateNewItem(int tier)
         {
             var equipable = GenerateItem(tier);
+
+            var newItem = InstantiateSpecificEquipable(equipable);
             
+            FindAnyObjectByType<GridEquipment>().GridBackend.PlaceItem(newItem.GetComponent<ItemInUI>()); //TODO Consider
+        }
+
+        public GameObject InstantiateSpecificEquipable(EquipableItem equipable)
+        {
             GameObject newItem = Instantiate(itemPrefab, itemParent);
             EquipableHolder equipableComponent = newItem.GetComponent<EquipableHolder>();
             equipableComponent.SetEquipableItem(equipable);
             SEquipmentBase equipmentBase = equipable.equipmentBase;
             
-            Debug.Log(equipable);
-            Debug.Log(equipable.equipmentBase);
-            Debug.Log(newItem.GetComponent<ItemInUI>());
-            
             newItem.GetComponent<ItemInUI>().SetSize((byte)equipmentBase.Size.x, (byte)equipmentBase.Size.y);
             newItem.GetComponent<ItemInUI>().SetImage(equipmentBase.Icon);
-            //newItem.GetComponent<EquipableItem>().equipmentBase = equipmentBase;
-            
             newItem.GetComponent<ItemInUI>().UpdateSize();
-            FindAnyObjectByType<GridEquipment>().GridBackend.PlaceItem(newItem.GetComponent<ItemInUI>()); //TODO Consider
+            
+            newItem.GetComponent<ItemInUI>().currentGrid = FindAnyObjectByType<GridEquipment>().GridBackend;
+            
+            return newItem;
         }
 
         public void AddAffix(EquipableItem equipable, AffixType affixType)
@@ -252,15 +256,6 @@ namespace Characters.Player.CharacterItem
             Debug.LogWarning($"Something went wrong, equipment bases T1 were returned. Provided {tier} base tier");
             return EquipmentBases.equipmentBasesDatabaseT1;
         }
-        
-        /*public EquipableItem GenerateSpecificItem(EquipableItem equipableItem)
-        {
-            var newItem = Instantiate(itemPrefab, itemParent);
-            
-            Destroy(newItem.GetComponent<EquipableItem>());
-            newItem.AddComponent<EquipableItem>();
-            return newItem.GetComponent<EquipableItem>();
-        }*/
     }
 }
 
