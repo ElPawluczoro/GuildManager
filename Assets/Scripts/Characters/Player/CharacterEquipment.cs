@@ -138,8 +138,6 @@ namespace Characters.Player
                 Affixes.INCREASED_ARMOUR_LOCAL, Affixes.INCREASED_DODGE_LOCAL, Affixes.INCREASED_MAGIC_RESISTANCE_LOCAL,
                 Affixes.ARMOUR, Affixes.MAGIC_RESISTANCE, Affixes.DODGE
             };
-
-            
             
             if (equipable == slot)
             {
@@ -258,9 +256,6 @@ namespace Characters.Player
                 HandleAttackDamage(false, equipable);
             }
             
-            
-            
-            //Destroy(slot.gameObject); //TODO create unequip mechanic
             slot = null;
             
             return true;
