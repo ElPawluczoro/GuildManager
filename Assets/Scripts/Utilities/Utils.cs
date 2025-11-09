@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Reflection;
 using Characters.Player.CharacterItem;
 using ProjectEnums;
 using UnityEngine;
@@ -103,6 +104,29 @@ namespace Utilities
 
                 default: return new string[] { affix.ToString(), "" };
 
+            }
+        }
+        
+        public static void CopyValues<T>(T source, T destination)
+        {
+            if (source == null || destination == null)
+                return;
+
+            BindingFlags flags = BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance;
+            var type = typeof(T);
+
+            while (type != null && type != typeof(MonoBehaviour))
+            {
+                foreach (var field in type.GetFields(flags))
+                {
+                    // Pomijaj pola Unity'owe (np. gameObject, transform, tag itp.)
+                    if (field.IsDefined(typeof(SerializeField), false) || field.IsPublic)
+                    {
+                        field.SetValue(destination, field.GetValue(source));
+                    }
+                }
+
+                type = type.BaseType;
             }
         }
     }

@@ -105,10 +105,10 @@ namespace Characters
             switch (effectType)
             {
                 case EffectType.BLEED:
-                    characterHealth.RecieveDamage(DamageType.PHYSICAL, this.damage);
+                    characterHealth.ReceiveDamage(DamageType.PHYSICAL, this.damage);
                     break;
                 case EffectType.BURN:
-                    characterHealth.RecieveDamage(DamageType.PHYSICAL, this.damage);
+                    characterHealth.ReceiveDamage(DamageType.PHYSICAL, this.damage);
                     break;
                 case EffectType.STUN:
                     //TODO stun logic

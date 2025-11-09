@@ -9,6 +9,12 @@ namespace Gameplay
     public class CombatTrigger : MonoBehaviour
     {
         [SerializeField] private List<GameObject> enemies = new();
+
+        public void AddEnemyToEncounter(GameObject enemy)
+        {
+            enemies.Add(enemy);
+            Instantiate(enemy, transform);
+        }
         
         private void OnTriggerEnter2D(Collider2D other)
         {
@@ -24,7 +30,8 @@ namespace Gameplay
             
             if (other.CompareTag("Player"))
             {
-                SceneManager.LoadScene(1);
+                FindFirstObjectByType<CurrentLevelInformation>().SaveLevel(this.gameObject);
+                SceneManager.LoadScene(2);
             }
         }
     }

@@ -2,17 +2,23 @@
 using System.Collections.Generic;
 using Characters;
 using UnityEngine;
+using Utilities;
 
-namespace Gameplay
+namespace Gameplay.Combat
 {
     public class LoadCombatScene : MonoBehaviour
     {
         [SerializeField] private List<GameObject> playerCharactersList = new();
         [SerializeField] private List<GameObject> enemyCharactersList = new();
-
+        
+        private CharacterGridBackend characterGridBackend;
+        private Grid grid;
+            
         public List<SOCharacter> testPlayerCharacters;
         private void Start()
         {
+            characterGridBackend = FindAnyObjectByType<CharacterGridBackend>();
+            grid = FindAnyObjectByType<Grid>();
             LoadScene();
         }
 
@@ -35,8 +41,39 @@ namespace Gameplay
                     origin[i].GetComponent<BasicCharacter>().CharacterSO
                         .GetAnimatorOverrideController();
                 
-                origin[i].transform.SetParent(newCharacter.transform);
+                
+                Utils.CopyValues(origin[i].GetComponent<CharacterBasicStats>(),
+                    newCharacter.GetComponent<CharacterBasicStats>());
+                
+                Utils.CopyValues(origin[i].GetComponent<CharacterAdvancedStats>(),
+                    newCharacter.GetComponent<CharacterAdvancedStats>());
+                
+                /*Utils.CopyValues(origin[i].GetComponent<CharacterHealth>(),
+                    newCharacter.GetComponent<CharacterHealth>());*/
+                
+                newCharacter.GetComponent<CharacterHealth>().SetUpDependences();
+                newCharacter.GetComponent<CharacterHealth>().UpdateMaxHealth();
+
+
+
+                //origin[i].transform.SetParent(newCharacter.transform);
             }
         }
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

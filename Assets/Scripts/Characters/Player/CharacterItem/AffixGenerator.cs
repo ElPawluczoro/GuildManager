@@ -46,6 +46,7 @@ namespace Characters.Player.CharacterItem
         
         private void Awake()
         {
+            if (prefixes.Count > 0) return;
             InitializeAffixesLists();
 
             InitializeAffixesGroups();
