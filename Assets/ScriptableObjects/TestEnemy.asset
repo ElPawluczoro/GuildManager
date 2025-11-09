@@ -1,0 +1,15 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7892d7f78f594082bcbdf084f6de7035, type: 3}
+  m_Name: TestEnemy
+  m_EditorClassIdentifier: 
+  animatorOverrideController: {fileID: 22100000, guid: 3cc3cb4931c32e542b5d867f36c8bfca, type: 2}

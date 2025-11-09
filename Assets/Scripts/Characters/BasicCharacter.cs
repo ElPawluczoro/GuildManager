@@ -10,6 +10,9 @@ namespace Characters
 
         public Guid _ID { get { return ID; } }
 
+        [SerializeField] private SOCharacter character;
+        public SOCharacter CharacterSO { get { return character; } }
+        
        public void InitializeCharacter()
         {
             ID = Guid.NewGuid();

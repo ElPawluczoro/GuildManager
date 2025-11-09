@@ -66,6 +66,11 @@ namespace Characters
             { ECharacterBasicStat.MIN_ATTACK_DAMAGE, 0 },
             { ECharacterBasicStat.MAX_ATTACK_DAMAGE, 0 }
         };
+
+        public short GetStat(ECharacterBasicStat stat)
+        {
+            return stats[stat];
+        }
         
         public SerializedDictionary<ECharacterBasicStat, short> BasicStats => stats;
 

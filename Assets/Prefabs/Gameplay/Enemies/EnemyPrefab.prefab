@@ -1,0 +1,327 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &3484204511777862050
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 900967792796832526}
+  - component: {fileID: 8650429495341521225}
+  - component: {fileID: 4856150003801315506}
+  - component: {fileID: 864426476449915307}
+  - component: {fileID: 48157396612025610}
+  - component: {fileID: 6172451444949835973}
+  m_Layer: 0
+  m_Name: EnemyPrefab
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &900967792796832526
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3484204511777862050}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 1.2529, y: 0.62242997, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8650429495341521225
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3484204511777862050}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cfa40a4848a395649a88d3f738885720, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  character: {fileID: 11400000, guid: 1acc442cb7253d74b9e67b1695da6377, type: 2}
+--- !u!114 &4856150003801315506
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3484204511777862050}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0cd8c80e917413f45aeeceffa629a846, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stats:
+    list:
+    - Key: 0
+      Value: 25
+    - Key: 1
+      Value: 25
+    - Key: 2
+      Value: 25
+    - Key: 3
+      Value: 5
+    - Key: 4
+      Value: 0
+    - Key: 5
+      Value: 0
+    - Key: 6
+      Value: 0
+    - Key: 7
+      Value: 0
+    - Key: 8
+      Value: 0
+    - Key: 9
+      Value: 0
+    - Key: 10
+      Value: 0
+    - Key: 11
+      Value: 0
+    - Key: 12
+      Value: 0
+    - Key: 13
+      Value: 0
+--- !u!114 &864426476449915307
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3484204511777862050}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 741cea537421ca645971e67924e2dfcd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  advancedStats:
+    list:
+    - Key: 0
+      Value: 0
+    - Key: 1
+      Value: 0
+    - Key: 2
+      Value: 0
+    - Key: 3
+      Value: 0
+    - Key: 4
+      Value: 0
+    - Key: 5
+      Value: 0
+    - Key: 6
+      Value: 0
+    - Key: 7
+      Value: 0
+    - Key: 8
+      Value: 0
+    - Key: 9
+      Value: 0
+    - Key: 10
+      Value: 0
+    - Key: 11
+      Value: 0
+    - Key: 12
+      Value: 0
+    - Key: 13
+      Value: 0
+    - Key: 14
+      Value: 0
+    - Key: 15
+      Value: 0
+    - Key: 16
+      Value: 0
+    - Key: 17
+      Value: 0
+    - Key: 18
+      Value: 0
+    - Key: 19
+      Value: 0
+    - Key: 20
+      Value: 0
+    - Key: 21
+      Value: 0
+    - Key: 22
+      Value: 0
+    - Key: 23
+      Value: 0
+    - Key: 24
+      Value: 0
+    - Key: 25
+      Value: 0
+    - Key: 26
+      Value: 0
+    - Key: 27
+      Value: 0
+    - Key: 28
+      Value: 0
+--- !u!114 &48157396612025610
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3484204511777862050}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9465238e066198b448526be4b1f34a81, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  helmet:
+    itemName: 
+    itemValue: 0
+    equipmentType: 0
+    prefixes: []
+    suffixes: []
+    rarity: 0
+    levelRequirement: 0
+    statRequirements: {x: 0, y: 0, z: 0}
+    defensiveStats: {x: 0, y: 0, z: 0}
+    totalDefensiveStats: {x: 0, y: 0, z: 0}
+    attackDamage: {x: 0, y: 0}
+    attackSpeed: 0
+    blockChance: 0
+    equipmentBase: {fileID: 0}
+  bodyArmour:
+    itemName: 
+    itemValue: 0
+    equipmentType: 0
+    prefixes: []
+    suffixes: []
+    rarity: 0
+    levelRequirement: 0
+    statRequirements: {x: 0, y: 0, z: 0}
+    defensiveStats: {x: 0, y: 0, z: 0}
+    totalDefensiveStats: {x: 0, y: 0, z: 0}
+    attackDamage: {x: 0, y: 0}
+    attackSpeed: 0
+    blockChance: 0
+    equipmentBase: {fileID: 0}
+  boots:
+    itemName: 
+    itemValue: 0
+    equipmentType: 0
+    prefixes: []
+    suffixes: []
+    rarity: 0
+    levelRequirement: 0
+    statRequirements: {x: 0, y: 0, z: 0}
+    defensiveStats: {x: 0, y: 0, z: 0}
+    totalDefensiveStats: {x: 0, y: 0, z: 0}
+    attackDamage: {x: 0, y: 0}
+    attackSpeed: 0
+    blockChance: 0
+    equipmentBase: {fileID: 0}
+  gloves:
+    itemName: 
+    itemValue: 0
+    equipmentType: 0
+    prefixes: []
+    suffixes: []
+    rarity: 0
+    levelRequirement: 0
+    statRequirements: {x: 0, y: 0, z: 0}
+    defensiveStats: {x: 0, y: 0, z: 0}
+    totalDefensiveStats: {x: 0, y: 0, z: 0}
+    attackDamage: {x: 0, y: 0}
+    attackSpeed: 0
+    blockChance: 0
+    equipmentBase: {fileID: 0}
+  ring1:
+    itemName: 
+    itemValue: 0
+    equipmentType: 0
+    prefixes: []
+    suffixes: []
+    rarity: 0
+    levelRequirement: 0
+    statRequirements: {x: 0, y: 0, z: 0}
+    defensiveStats: {x: 0, y: 0, z: 0}
+    totalDefensiveStats: {x: 0, y: 0, z: 0}
+    attackDamage: {x: 0, y: 0}
+    attackSpeed: 0
+    blockChance: 0
+    equipmentBase: {fileID: 0}
+  ring2:
+    itemName: 
+    itemValue: 0
+    equipmentType: 0
+    prefixes: []
+    suffixes: []
+    rarity: 0
+    levelRequirement: 0
+    statRequirements: {x: 0, y: 0, z: 0}
+    defensiveStats: {x: 0, y: 0, z: 0}
+    totalDefensiveStats: {x: 0, y: 0, z: 0}
+    attackDamage: {x: 0, y: 0}
+    attackSpeed: 0
+    blockChance: 0
+    equipmentBase: {fileID: 0}
+  amulet:
+    itemName: 
+    itemValue: 0
+    equipmentType: 0
+    prefixes: []
+    suffixes: []
+    rarity: 0
+    levelRequirement: 0
+    statRequirements: {x: 0, y: 0, z: 0}
+    defensiveStats: {x: 0, y: 0, z: 0}
+    totalDefensiveStats: {x: 0, y: 0, z: 0}
+    attackDamage: {x: 0, y: 0}
+    attackSpeed: 0
+    blockChance: 0
+    equipmentBase: {fileID: 0}
+  mainHand:
+    itemName: 
+    itemValue: 0
+    equipmentType: 0
+    prefixes: []
+    suffixes: []
+    rarity: 0
+    levelRequirement: 0
+    statRequirements: {x: 0, y: 0, z: 0}
+    defensiveStats: {x: 0, y: 0, z: 0}
+    totalDefensiveStats: {x: 0, y: 0, z: 0}
+    attackDamage: {x: 0, y: 0}
+    attackSpeed: 0
+    blockChance: 0
+    equipmentBase: {fileID: 0}
+  offHand:
+    itemName: 
+    itemValue: 0
+    equipmentType: 0
+    prefixes: []
+    suffixes: []
+    rarity: 0
+    levelRequirement: 0
+    statRequirements: {x: 0, y: 0, z: 0}
+    defensiveStats: {x: 0, y: 0, z: 0}
+    totalDefensiveStats: {x: 0, y: 0, z: 0}
+    attackDamage: {x: 0, y: 0}
+    attackSpeed: 0
+    blockChance: 0
+    equipmentBase: {fileID: 0}
+--- !u!114 &6172451444949835973
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3484204511777862050}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b3062afa4cc071b4492f96460cff8a9d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 10
+  currentHealth: 0
+  healthRegeneration: 0
